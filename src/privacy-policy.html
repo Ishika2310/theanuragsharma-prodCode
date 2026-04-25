@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy & Cookie Policy - Anurag Sharma</title>
+  <link rel="icon" type="image/x-icon" href="./assets/logo-for-title.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <style>
+    .expertise-header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 8rem 0 3rem;
+      position: relative;
+      border-radius: 15px;
+    }
+
+    .expertise-header .icon {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .expertise-header {
+        padding: 6rem 0 2rem;
+        border-radius: 15px;
+      }
+      .expertise-header .icon {
+        font-size: 2.5rem;
+        display: block;
+      }
+      .expertise-header h1 {
+        font-size: 1.8rem;
+      }
+      .expertise-header .lead {
+        font-size: 0.95rem;
+        padding: 0 15px;
+      }
+    }
+
+    .content-section {
+      padding: 4rem 0;
+    }
+
+    .policy-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .policy-content h2 {
+      color: var(--primary-color);
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+    }
+
+    .policy-content h3 {
+      color: var(--primary-color);
+      margin-top: 1.5rem;
+      margin-bottom: 0.8rem;
+      font-size: 1.4rem;
+    }
+
+    .policy-content p {
+      line-height: 1.8;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+
+    .policy-content ul, .policy-content ol {
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      color: #333;
+    }
+
+    .policy-content li {
+      margin-bottom: 0.5rem;
+    }
+
+    .policy-content strong {
+      color: var(--primary-color);
+    }
+
+    .last-updated {
+      background-color: #f9f9f9;
+      padding: 1rem;
+      border-left: 4px solid var(--accent-color);
+      margin-bottom: 2rem;
+      border-radius: 5px;
+    }
+
+    /* Mobile responsive styles for buttons */
+    @media (max-width: 768px) {
+      .cookie-preference-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+      }
+      
+      .cookie-preference-buttons .btn {
+        width: 100%;
+        max-width: 260px;
+        margin: 0 !important;
+        font-size: 0.85rem;
+        padding: 10px 12px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      
+      .cookie-preference-buttons .btn i {
+        margin-right: 6px;
+      }
+    }
+
+    .cookie-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+    }
+
+    .cookie-table th, .cookie-table td {
+      padding: 12px;
+      text-align: left;
+      border: 1px solid #ddd;
+    }
+
+    .cookie-table th {
+      background-color: var(--primary-color);
+      color: white;
+    }
+
+    .cookie-table tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    .cookie-table-container {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 1.5rem 0;
+    }
+
+    /* Responsive table styles */
+    @media (max-width: 768px) {
+      .cookie-table-container {
+        margin: 1rem 0;
+        padding-right: 10px;
+        box-shadow: inset -10px 0 10px -10px rgba(0,0,0,0.1);
+      }
+      
+      .cookie-table {
+        min-width: 550px;
+        font-size: 0.8rem;
+        margin: 0;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      
+      .cookie-table th, .cookie-table td {
+        padding: 8px 10px;
+        white-space: normal;
+        font-size: 0.8rem;
+        line-height: 1.4;
+      }
+      
+      .cookie-table th:first-child, 
+      .cookie-table td:first-child {
+        min-width: 100px;
+        font-weight: 600;
+      }
+      
+      .cookie-table th:nth-child(2), 
+      .cookie-table td:nth-child(2) {
+        min-width: 180px;
+      }
+      
+      .cookie-table th:nth-child(3), 
+      .cookie-table td:nth-child(3) {
+        min-width: 90px;
+      }
+      
+      .cookie-table th:nth-child(4), 
+      .cookie-table td:nth-child(4) {
+        min-width: 100px;
+      }
+    }
+
+    .info-box {
+      background-color: #f8f9fa;
+      border-left: 4px solid var(--primary-color);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 5px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding-top: 50px;
+      }
+
+      .policy-content {
+        padding: 0 15px;
+      }
+      
+      .policy-content h2 {
+        font-size: 1.5rem;
+      }
+      
+      .policy-content h3 {
+        font-size: 1.2rem;
+      }
+      
+      .info-box {
+        padding: 1rem;
+        margin: 1rem 0;
+      }
+    }
+    
+    /* Increased navbar link spacing on desktop */
+    @media (min-width: 992px) {
+      .navbar-nav .nav-item {
+        margin-left: 8px;
+        margin-right: 8px;
+      }
+      
+      .navbar-nav .nav-item:first-child {
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-30GRQXD0XM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-30GRQXD0XM');
+</script>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a href="index.html">
+        <img src="./assets/logo_with_globe.png" class="logo" alt="Anurag Sharma Logo" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#expertise">Expertise</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="publications.html">Publications</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="subject-matter-knowledge.html">Subject Matter Knowledge</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="conferences-delegations.html">Conferences</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#workedwith">Engagements</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#contact">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-primary" href="booksession.html" style="margin-left: 10px;">Book a Session</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header Section -->
+  <header class="expertise-header">
+    <div class="container">
+      <div class="text-center">
+        <i class="fas fa-shield-alt icon"></i>
+        <h1>Privacy & Cookie Policy</h1>
+        <p class="lead">Your privacy matters to us</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Policy Content Section -->
+  <section class="content-section">
+    <div class="container">
+      <div class="policy-content">
+        <div class="last-updated">
+          <strong><i class="fas fa-calendar-alt"></i> Last Updated:</strong> December 20, 2025
+        </div>
+
+        <h2>1. Introduction</h2>
+        <p>
+          This Cookie Policy describes what kinds of cookies and similar technologies we use in connection with our Services, 
+          and how you can manage them. This policy does not address how we process your personal information outside of our 
+          usage of cookies. To learn more about how we process your personal information, please contact us through our website.
+        </p>
+
+        <h2>2. What Are Cookies?</h2>
+        <p>
+          Cookies are small text files that may be placed on your device when you interact with our website. They can help 
+          websites remember details about your visit, such as your preferred settings, which can enhance your experience on 
+          subsequent visits. Cookies can also be used for troubleshooting errors, understanding service usage, and supporting 
+          essential functionality.
+        </p>
+        <p>
+          Cookies set directly by us are called <strong>first-party cookies</strong>. We also use <strong>third-party cookies</strong>, 
+          which originate from a domain different from the one you are currently visiting. Similar technologies, such as pixels and 
+          local storage, can also be used for these purposes. For simplicity, we refer to these technologies as "cookies" in this policy.
+        </p>
+
+        <div class="info-box">
+          <strong><i class="fas fa-clock"></i> Cookie Duration:</strong> Your cookie consent preferences are stored 
+          to remember your choice and avoid repeatedly asking for the same consent.
+        </div>
+
+        <h2>3. Types of Cookies We Use</h2>
+
+        <h3>3.1 Necessary Cookies</h3>
+        <p>
+          These cookies are required to operate our website. For example, they allow us to remember your cookie consent preference 
+          and enable specific features within the website, including for security purposes. These cookies cannot be disabled.
+        </p>
+
+        <div class="cookie-table-container">
+          <table class="cookie-table">
+            <thead>
+              <tr>
+                <th>Cookie Name</th>
+                <th>Purpose</th>
+                <th>Duration</th>
+                <th>Provider</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>cookieConsent</code></td>
+                <td>Stores your cookie consent preference (accepted/declined)</td>
+                <td>Session/Persistent</td>
+                <td>First-party</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>3.2 Analytics Cookies (Optional - Requires Consent)</h3>
+        <p>
+          These cookies help us understand how our website performs and how it is used, such as the number of visitors and how 
+          they interact with our content. We use Google Analytics for this purpose.
+        </p>
+
+        <div class="cookie-table-container">
+          <table class="cookie-table">
+            <thead>
+              <tr>
+                <th>Cookie Name</th>
+                <th>Purpose</th>
+                <th>Duration</th>
+                <th>Provider</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>_ga</code></td>
+                <td>Distinguishes unique users</td>
+                <td>2 years</td>
+                <td>Google Analytics</td>
+              </tr>
+              <tr>
+                <td><code>_gid</code></td>
+                <td>Distinguishes users</td>
+                <td>24 hours</td>
+                <td>Google Analytics</td>
+              </tr>
+              <tr>
+                <td><code>_gat</code></td>
+                <td>Throttles request rate</td>
+                <td>1 minute</td>
+                <td>Google Analytics</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>4. Information We Collect</h2>
+        <h3>Automatically Collected</h3>
+        <p>When you visit our website, we automatically collect certain information about your device, including:</p>
+        <ul>
+          <li>Browser type and version</li>
+          <li>Operating system</li>
+          <li>Pages visited and time spent</li>
+          <li>Referral source</li>
+        </ul>
+
+        <h3>Information You Provide</h3>
+        <p>When you book a consultation or contact us, you may provide:</p>
+        <ul>
+          <li>Name</li>
+          <li>Email address</li>
+          <li>Phone number</li>
+          <li>Consultation preferences</li>
+        </ul>
+
+        <h2>5. How We Use Your Information</h2>
+        <ul>
+          <li>Provide and improve our services</li>
+          <li>Process consultation bookings</li>
+          <li>Respond to inquiries</li>
+          <li>Analyze website usage and improve user experience</li>
+          <li>Comply with legal obligations</li>
+        </ul>
+
+        <h2>6. Managing Cookies</h2>
+        <p>
+          You can manage your cookie preferences through your browser settings. Your web browser may allow you to manage your 
+          cookie preferences, including to delete and disable cookies. You can take a look at the help section of your web 
+          browser or follow the links below to understand your options:
+        </p>
+
+        <div class="info-box">
+          <strong>Browser Cookie Settings:</strong>
+          <ul style="margin-top: 0.5rem; margin-bottom: 0;">
+            <li><strong>Chrome:</strong> Settings → Privacy and security → Cookies and other site data</li>
+            <li><strong>Firefox:</strong> Settings → Privacy & Security → Cookies and Site Data</li>
+            <li><strong>Safari:</strong> Preferences → Privacy → Cookies and website data</li>
+            <li><strong>Edge:</strong> Settings → Privacy, search, and services → Cookies and site permissions</li>
+          </ul>
+        </div>
+
+        <p>
+          <strong>Important:</strong> Changes you make to your cookie settings may affect the availability or functionality of the website. 
+          Cookies listed as "Necessary" are required for the website to function and cannot be disabled.
+        </p>
+        <p>
+          Cookie settings are device- and browser-specific, so you will need to set cookie preferences for each device's browser.
+        </p>
+
+        <h2>7. Data Protection & Your Rights</h2>
+        <p>
+          We implement appropriate security measures to protect your personal information, including SSL/TLS encryption for 
+          data transmission and secure storage practices.
+        </p>
+        <p>Under applicable data protection laws, you have the right to:</p>
+        <ul>
+          <li>Access your personal data</li>
+          <li>Correct inaccurate data</li>
+          <li>Request deletion of your data</li>
+          <li>Object to data processing</li>
+          <li>Withdraw consent at any time</li>
+        </ul>
+
+        <h2>8. Third-Party Services</h2>
+        <p>We use the following third-party services:</p>
+        <ul>
+          <li><strong>Google Analytics:</strong> For website analytics (only with your consent)</li>
+          <li><strong>Google Sheets:</strong> For consultation booking management</li>
+        </ul>
+        <p>
+          These services have their own privacy policies. For more information, please visit: 
+          <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a>
+        </p>
+
+        <h2>9. Additional Information</h2>
+        <p>
+          For additional information about cookies, including how to see what cookies have been set on your device and how 
+          to manage and delete them, please visit <a href="http://www.allaboutcookies.org/" target="_blank" rel="noopener noreferrer">www.allaboutcookies.org</a>.
+        </p>
+
+        <h2>10. Changes to This Policy</h2>
+        <p>
+          We may update this Privacy and Cookie Policy from time to time. The "Last Updated" date at the top of this page 
+          indicates when the policy was last revised. We encourage you to review this policy periodically.
+        </p>
+
+        <h2>Contact Us</h2>
+        <p>
+          If you have questions about this Privacy and Cookie Policy or wish to exercise your rights, please contact us 
+          through our <a href="index.html#contact">Contact Form</a>.
+        </p>
+
+        <div style="margin-top: 3rem; background-color: #f9f9f9; border-radius: 10px; text-align: center;">
+          <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Manage Your Cookie Preferences</h3>
+          <p>You can change your cookie preferences at any time:</p>
+          <div style="margin-top: 1.5rem;">
+            <div class="cookie-preference-buttons">
+              <button onclick="resetCookieConsent()" class="btn btn-primary">
+                <i class="fas fa-redo"></i> Reset Cookies
+              </button>
+              <a href="index.html" class="btn btn-secondary">
+                <i class="fas fa-home"></i> Home
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center mb-3 mb-md-0">
+          <p>&copy; 2026 Anurag Sharma. All Rights Reserved. | <a href="privacy-policy.html" style="color: var(--accent-color);">Privacy & Cookie Policy</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <a href="#" id="back-to-top" class="btn btn-primary back-to-top position-fixed bottom-0 end-0 m-4 rounded-circle"
+    style="width: 50px; height: 50px; display: none; align-items: center; justify-content: center; opacity: 0.7;">
+    <i class="fas fa-rocket" style="transform: rotate(-45deg);"></i>
+  </a>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="./js/script.js"></script>
+  <script>
+    // Reset cookie consent function
+    function resetCookieConsent() {
+      document.cookie = "cookieConsent=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      alert('Cookie preferences have been reset. The cookie banner will appear on your next visit to the homepage.');
+      window.location.href = 'index.html';
+    }
+
+    // Back to top button functionality
+    $(window).scroll(function () {
+      if ($(this).scrollTop() > 300) {
+        $('#back-to-top').fadeIn();
+      } else {
+        $('#back-to-top').fadeOut();
+      }
+    });
+
+    $('#back-to-top').click(function (e) {
+      e.preventDefault();
+      
+      // Add flying animation
+      $(this).css({
+        'transition': 'transform 0.6s ease-out, opacity 0.6s ease-out',
+        'transform': 'translateY(-100vh)',
+        'opacity': '0'
+      });
+      
+      // Scroll to top smoothly
+      $('html, body').animate({ scrollTop: 0 }, 600);
+      
+      // Reset button position after animation
+      setTimeout(() => {
+        $(this).css({
+          'transition': 'none',
+          'transform': 'translateY(0)',
+          'opacity': '0.7'
+        });
+      }, 600);
+      
+      return false;
+    });
+
+    // Navigation scroll behavior
+    $(window).scroll(function () {
+      if ($(window).scrollTop() > 50) {
+        $('.navbar').addClass('scrolled');
+      } else {
+        $('.navbar').removeClass('scrolled');
+      }
+    });
+
+    $(window).trigger('scroll');
+  </script>
+</body>
+
+</html>

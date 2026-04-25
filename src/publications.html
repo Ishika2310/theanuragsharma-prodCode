@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Publications - Anurag Sharma</title>
+  <link rel="icon" type="image/x-icon" href="/assets/logo-for-title.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <style>
+    /* Increased navbar link spacing on desktop */
+    @media (min-width: 992px) {
+      .navbar-nav .nav-item {
+        margin-left: 8px;
+        margin-right: 8px;
+      }
+      
+      .navbar-nav .nav-item:first-child {
+        margin-left: 0;
+      }
+    }
+    
+    /* Additional styles for publications page */
+    .page-header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 6rem 0;
+      margin-bottom: 1rem;
+      text-align: center;
+      border-radius: 15px;
+    }
+    
+    .page-header .icon {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      /* color: var(--accent-color); */
+    }
+    
+    @media (max-width: 768px) {
+      .page-header {
+        padding: 6rem 0 2rem;
+        min-height: auto;
+        border-radius: 15px;
+      }
+      
+      .page-header .icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        display: block;
+      }
+      
+      .page-header h1 {
+        font-size: 1.8rem;
+        margin-bottom: 0.8rem;
+      }
+      
+      .page-header .lead {
+        font-size: 0.95rem;
+        padding: 0 15px;
+      }
+    }
+
+    .publications-section {
+      padding: 3rem 0;
+    }
+
+    .publication-card {
+      margin-bottom: 1.5rem;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s;
+      height: 100%;
+      background-color: white;
+    }
+
+    .publication-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .publication-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary-color);
+    }
+
+    .publication-card .journal {
+      font-style: italic;
+      color: #666;
+      margin-bottom: 0.5rem;
+    }
+
+    .filters {
+      margin-bottom: 2rem;
+    }
+
+    .filter-btn {
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+      background-color: #f0f0f0;
+      border: none;
+      border-radius: 20px;
+      padding: 0.5rem 1rem;
+      transition: all 0.3s;
+    }
+
+    .filter-btn.active {
+      background-color: var(--primary-color);
+      color: white;
+    }
+
+    .back-link {
+      margin-bottom: 2rem;
+      display: inline-block;
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+
+    .tag {
+      background-color: #f0f0f0;
+      border-radius: 12px;
+      padding: 0.2rem 0.6rem;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.75rem;
+      color: #666;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding-top: 50px;
+      }
+    }
+  </style>
+</head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-30GRQXD0XM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-30GRQXD0XM');
+</script>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a href="index.html">  <!-- Replace 'index.html' with your home page URL -->
+        <img src="./assets/logo_with_globe.png" class="logo" />
+      </a>
+      <a class="navbar-brand" href="#"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#expertise">Expertise</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="publications.html">Publications</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="subject-matter-knowledge.html">Subject Matter Knowledge</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="conferences-delegations.html">Conferences</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#workedwith">Engagements</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#contact">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-primary" href="booksession.html" style="margin-left: 10px;">Book a Session</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <div class="container">
+      <i class="fas fa-book-open icon"></i>
+      <h1>Publications</h1>
+      <p class="lead">Exploring Space Power, Technology Diplomacy, and International Relations</p>
+    </div>
+  </header>
+
+  <!-- Publications Section -->
+  <section class="publications-section">
+    <div class="container">
+      <a href="index.html" class="back-link"><i class="fas fa-arrow-left me-2"></i>Back to Home</a>
+
+      <!-- Filters -->
+      <div class="filters">
+        <h4 class="mb-3">Filter by Category:</h4>
+        <button class="filter-btn active" data-filter="all">All Publications</button>
+        <button class="filter-btn" data-filter="space">Space Power</button>
+        <button class="filter-btn" data-filter="tech">Technology Diplomacy</button>
+        <button class="filter-btn" data-filter="defense">Defense</button>
+        <button class="filter-btn" data-filter="economics">Economic Diplomacy</button>
+        <button class="filter-btn" data-filter="cyber">Cyber Security</button>
+        <button class="filter-btn" data-filter="global">Global Commons</button>
+        <button class="filter-btn" data-filter="cultural">Cultural Diplomacy</button>
+      </div>
+
+      <div class="row publication-container">
+        <!-- Publication 1 -->
+        <div class="col-lg-4 col-md-6 mb-4 publication-item space tech">
+          <div class="publication-card">
+            <h3>Drawing the New Iron Curtain in the Final Frontier of Space</h3>
+            <p class="journal">Issue Brief (Sharp Scope Volume 1, Number 2)</p>
+            <p class="journal">Samvada World (Bangalore), 2024</p>
+            <p>
+              This paper examines the limitations of the 1967 Outer Space
+              Treaty in addressing contemporary challenges and proposes
+              adaptations to ensure its continued relevance.
+            </p>
+            <div class="tags">
+              <span class="tag">Outer Space</span>
+              <span class="tag">Space Power</span>
+              <span class="tag">Technology Diplomacy</span>
+              <span class="tag">Space Race</span>
+              <span class="tag">Iron Curtain</span>
+            </div>
+            <a href="https://theanuragsharma.com/assets/Sharp-Scope-Vol-1-No-2-Drawing-the-new-Iron-Curtain-in-the-Final-Frontier-of-Space.pdf" class="btn btn-sm btn-outline-primary mt-2" target="_blank">Read More</a>
+          </div>
+        </div>
+
+        <!-- Publication 2 -->
+        <div class="col-lg-4 col-md-6 mb-4 publication-item space tech economics">
+          <div class="publication-card">
+            <h3>Europe-India Space Cooperation: A Comprehensive Study of 100-year Engagement and Beyond</h3>
+            <p class="journal">Research Paper</p>
+            <p class="journal">Europe India Center for Business and Industries (Kochi, India), 2024</p>
+            <p>
+              A comprehensive analysis of the historical and future prospects of space cooperation between Europe and India, 
+              covering technological exchanges, joint missions, and economic implications.
+            </p>
+            <div class="tags">
+              <span class="tag">Outer Space</span>
+              <span class="tag">Technology Diplomacy</span>
+              <span class="tag">Economic Diplomacy</span>
+              <span class="tag">Space Governance</span>
+              <span class="tag">ISRO</span>
+              <span class="tag">ESA</span>
+            </div>
+            <a href="https://www.eicbi.org/post/europe-india-space-cooperation-a-comprehensive-study-of-100-year-engagement-and-beyond" class="btn btn-sm btn-outline-primary mt-2">Read More</a>
+          </div>
+        </div>
+
+        <!-- Publication 3 -->
+        <!-- <div class="col-lg-4 col-md-6 mb-4 publication-item cyber tech defense">
+          <div class="publication-card">
+            <h3>Proxy Warfare through Cyberspace: Lesson from Ukraine and Israel Affairs</h3>
+            <p class="journal">Research Paper</p>
+            <p class="journal">Borderman Institute of Border Security Studies (New Delhi, India), 2024</p>
+            <p>
+              An analysis of emerging cyber warfare tactics employed in recent conflicts, with implications for 
+              border security and national defense strategies.
+            </p>
+            <div class="tags">
+              <span class="tag">Cyber Space</span>
+              <span class="tag">Technology Diplomacy</span>
+              <span class="tag">Emerging Technologies</span>
+              <span class="tag">National Power</span>
+              <span class="tag">Dual Purpose Technology</span>
+            </div>
+            <a href="https://borderman.in/blogs/proxy-warfare-through-cyber-space-lessons-for-border-security-from-ukraine-and-israel-affairs/" class="btn btn-sm btn-outline-primary mt-2">Read More</a>
+          </div>
+        </div> -->
+
+        <!-- Publication 4 -->
+        <div class="col-lg-4 col-md-6 mb-4 publication-item cultural">
+          <div class="publication-card">
+            <h3>Transnational Buddhism and Ecological Awareness: The Case of Tibetan Nuns in Exile</h3>
+            <p class="journal">Book Chapter (Fostering an Ecological Shift Through Effective Environmental Education)</p>
+            <p class="journal">Research contribution for Prof. Swati Chawla, 2024</p>
+            <p>
+              An examination of how Tibetan Buddhist nuns in exile incorporate ecological awareness in their 
+              practices and teachings, contributing to environmental education.
+            </p>
+            <div class="tags">
+              <span class="tag">The Himalayas</span>
+              <span class="tag">Tibetan Nuns Project</span>
+              <span class="tag">Environmental Education</span>
+            </div>
+            <a href="https://www.igi-global.com/chapter/transnational-buddhism-and-ecological-awareness/349087" class="btn btn-sm btn-outline-primary mt-2">Read More</a>
+          </div>
+        </div>
+
+        <!-- Publication 5 -->
+        <div class="col-lg-4 col-md-6 mb-4 publication-item tech economics">
+          <div class="publication-card">
+            <h3>Technology Diplomacy in India Taiwan Ties</h3>
+            <p class="journal">Newsletter Article (Formosa Watch)</p>
+            <p class="journal">Center for North East Asian Studies (New Delhi, India), 2024</p>
+            <p>
+              An analysis of technology diplomacy as a tool for strengthening relations between India and Taiwan,
+              focusing on semiconductor industry collaboration and digital partnerships.
+            </p>
+            <div class="tags">
+              <span class="tag">Outer Space</span>
+              <span class="tag">Deep Sea</span>
+              <span class="tag">Cyber Space</span>
+              <span class="tag">Technology Diplomacy</span>
+              <span class="tag">Emerging Technologies</span>
+            </div>
+            <a href="https://jgu.s3.ap-south-1.amazonaws.com/jsia/Formosa+Watch+Newsletter.pdf" class="btn btn-sm btn-outline-primary mt-2">Read More</a>
+          </div>
+        </div>
+
+        <!-- Publication 6 -->
+        <div class="col-lg-4 col-md-6 mb-4 publication-item tech defense">
+          <div class="publication-card">
+            <h3>Missile Diplomacy of North Korea and the Messaging behind the Tests</h3>
+            <p class="journal">Newsletter Article (Seasang: Exploring the Koreas)</p>
+            <p class="journal">Center for North East Asian Studies (New Delhi, India), 2023</p>
+            <p>
+              A detailed analysis of North Korea's missile testing program and its geopolitical implications,
+              examining the strategic messaging behind these demonstrations.
+            </p>
+            <div class="tags">
+              <span class="tag">Rimland</span>
+              <span class="tag">Missile Diplomacy</span>
+              <span class="tag">Outer Space</span>
+              <span class="tag">Technology Diplomacy</span>
+            </div>
+            <a href="https://jgu.s3.ap-south-1.amazonaws.com/jsia/Korea+Newsletter_CNEAS2.pdf" class="btn btn-sm btn-outline-primary mt-2">Read More</a>
+          </div>
+        </div>
+
+        <!-- Publication 7 -->
+        <div class="col-lg-4 col-md-6 mb-4 publication-item cultural economics">
+          <div class="publication-card">
+            <h3>The Nadaam Festival: The Bastion of Mongol Solidarity</h3>
+            <p class="journal">Visual Journey</p>
+            <p class="journal">Center for North East Asian Studies (New Delhi, India), 2023</p>
+            <p>
+              A visual exploration of Mongolia's Naadam Festival, examining its cultural significance and
+              role in preserving Mongolian identity and social cohesion.
+            </p>
+            <div class="tags">
+              <span class="tag">Northeast Asia</span>
+              <span class="tag">Economic Diplomacy</span>
+              <span class="tag">Cultural Diplomacy</span>
+            </div>
+            <a href="https://jgu.s3.ap-south-1.amazonaws.com/Anurag_The+Nadaam+Festival_+Visual+Journey.pdf" class="btn btn-sm btn-outline-primary mt-2">Read More</a>
+          </div>
+        </div>
+
+        <!-- Publication 8 -->
+        <div class="col-lg-4 col-md-6 mb-4 publication-item global tech">
+          <div class="publication-card">
+            <h3>Antarctic as Global Common</h3>
+            <p class="journal">Newsletter Article (CPRG Chronicle Vol 5, Issue 2)</p>
+            <p class="journal">Center for Policy Research and Governance (New Delhi, India), 2023</p>
+            <p>
+              An examination of Antarctica's status as a global commons, analyzing international governance
+              frameworks and environmental protection challenges.
+            </p>
+            <div class="tags">
+              <span class="tag">Antarctic</span>
+              <span class="tag">Deep Sea</span>
+              <span class="tag">Global Commons</span>
+              <span class="tag">Dual Purpose Technology</span>
+              <span class="tag">Global Governance</span>
+            </div>
+            <a href="https://theanuragsharma.com/assets/Global-Commons-Newsletter_Antarctic.pdf" class="btn btn-sm btn-outline-primary mt-2" target="_blank">Read More</a>
+          </div>
+        </div>
+
+        <!-- Publication 9 -->
+        <div class="col-lg-4 col-md-6 mb-4 publication-item economics">
+          <div class="publication-card">
+            <h3>Japan's Far Eastern Dilemma with the Sakhalin Energy Project</h3>
+            <p class="journal">Op-Ed</p>
+            <p class="journal">Center for North East Asian Studies (New Delhi, India), 2024</p>
+            <p>
+              An analysis of Japan's strategic challenges regarding the Sakhalin Energy Project, balancing
+              energy security needs with geopolitical considerations in the Far East.
+            </p>
+            <div class="tags">
+              <span class="tag">Rimland</span>
+              <span class="tag">Economic Diplomacy</span>
+              <span class="tag">Energy Security</span>
+            </div>
+            <a href="https://jgu.s3.ap-south-1.amazonaws.com/jsia/Sakhalin+Energy+Quandary+Japan%27s+Strategic+Dance+in+the+Far-East_Anurag+Sharma.pdf" class="btn btn-sm btn-outline-primary mt-2">Read More</a>
+          </div>
+        </div>
+
+        <!-- Publication 10 -->
+        <div class="col-lg-4 col-md-6 mb-4 publication-item cultural economics">
+          <div class="publication-card">
+            <h3>Thousand Camels Festival of Gobi Desert</h3>
+            <p class="journal">Visual Journey</p>
+            <p class="journal">Center for North East Asian Studies (New Delhi, India), 2024</p>
+            <p>
+              A visual documentation of Mongolia's Thousand Camel Festival, exploring its cultural significance,
+              economic impact, and contribution to wildlife conservation efforts.
+            </p>
+            <div class="tags">
+              <span class="tag">Northeast Asia</span>
+              <span class="tag">Economic Diplomacy</span>
+              <span class="tag">Cultural Diplomacy</span>
+              <span class="tag">Wildlife Conservation</span>
+              <span class="tag">UNESCO</span>
+            </div>
+            <a href="https://jgu.s3.ap-south-1.amazonaws.com/jsia/Thousand+Camels+Festival+of+The+Gobi+Desert_Anurag+Sharma.pdf" class="btn btn-sm btn-outline-primary mt-2">Read More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center mb-3 mb-md-0">
+          <p>&copy; 2026 Anurag Sharma. All Rights Reserved. | <a href="privacy-policy.html" style="color: var(--accent-color); text-decoration: none;">Privacy & Cookie Policy</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <a href="#" id="back-to-top" class="btn btn-primary back-to-top position-fixed bottom-0 end-0 m-4 rounded-circle"
+    style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; opacity: 0.7; display: none;">
+    <i class="fas fa-rocket" style="transform: rotate(-45deg);"></i>
+  </a>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Mobile navbar link click handler - ensure menu closes and body scroll is restored
+    document.addEventListener('DOMContentLoaded', function() {
+      const navLinks = document.querySelectorAll('.navbar-nav .nav-link, .navbar-nav .btn');
+      const navbarCollapse = document.querySelector('.navbar-collapse');
+      const navbarToggler = document.querySelector('.navbar-toggler');
+      
+      navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          document.body.classList.remove('mobile-menu-open');
+          if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+            // Use Bootstrap's Collapse API to close
+            const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+            if (bsCollapse) {
+              bsCollapse.hide();
+            }
+          }
+        });
+      });
+    });
+    
+    // Back to top button
+    $(window).scroll(function () {
+      if ($(this).scrollTop() > 300) {
+        $('#back-to-top').fadeIn();
+      } else {
+        $('#back-to-top').fadeOut();
+      }
+    });
+
+    $('#back-to-top').click(function (e) {
+      e.preventDefault();
+      
+      // Add flying animation
+      $(this).css({
+        'transition': 'transform 0.6s ease-out, opacity 0.6s ease-out',
+        'transform': 'translateY(-100vh)',
+        'opacity': '0'
+      });
+      
+      // Scroll to top smoothly
+      $('html, body').animate({ scrollTop: 0 }, 600);
+      
+      // Reset button position after animation
+      setTimeout(() => {
+        $(this).css({
+          'transition': 'none',
+          'transform': 'translateY(0)',
+          'opacity': '0.7'
+        });
+      }, 600);
+      
+      return false;
+    });
+
+    // Publication filtering
+    $(document).ready(function () {
+      $('.filter-btn').on('click', function () {
+        const filter = $(this).data('filter');
+        
+        // Update active button
+        $('.filter-btn').removeClass('active');
+        $(this).addClass('active');
+        
+        // Filter publications
+        if (filter === 'all') {
+          $('.publication-item').show();
+        } else {
+          $('.publication-item').hide();
+          $('.publication-item.' + filter).show();
+        }
+      });
+
+      // Initialize navbar scroll behavior
+      $(window).scroll(function () {
+        if ($(window).scrollTop() > 50) {
+          $('.navbar').addClass('scrolled');
+        } else {
+          $('.navbar').removeClass('scrolled');
+        }
+      });
+
+      // Trigger scroll event on page load to set initial navbar state
+      $(window).trigger('scroll');
+    });
+  </script>
+</body>
+
+</html>

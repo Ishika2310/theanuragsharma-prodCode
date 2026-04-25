@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>Book a Session - Anurag Sharma</title>
+  <link rel="icon" type="image/x-icon" href="./assets/logo-for-title.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css' rel='stylesheet' />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="./css/booksession.css" />
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <style>
+    /* Increased navbar link spacing on desktop */
+    @media (min-width: 992px) {
+      .navbar-nav .nav-item {
+        margin-left: 8px;
+        margin-right: 8px;
+      }
+      
+      .navbar-nav .nav-item:first-child {
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Loading Overlay -->
+  <div id="page-loader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); z-index: 99999; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+    <div style="position: relative; width: 80px; height: 80px;">
+      <div style="position: absolute; border: 4px solid rgba(255, 107, 53, 0.2); border-radius: 50%; width: 80px; height: 80px;"></div>
+      <div style="position: absolute; border: 4px solid transparent; border-top-color: #ff6b35; border-radius: 50%; width: 80px; height: 80px; animation: spin 1s linear infinite;"></div>
+    </div>
+    <p class="mt-4" style="font-size: 1.2rem; color: #f8f9fa; font-weight: 500; letter-spacing: 0.5px;">Loading booking form...</p>
+    <p style="font-size: 0.9rem; color: rgba(255, 255, 255, 0.6); margin-top: 8px;">Please wait</p>
+  </div>
+  <style>
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a href="index.html">
+        <img src="./assets/logo_with_globe.png" class="logo" alt="Anurag Sharma Logo" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#expertise">Expertise</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="publications.html">Publications</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="subject-matter-knowledge.html">Subject Matter Knowledge</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="conferences-delegations.html">Conferences</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#workedwith">Engagements</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#contact">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-primary" href="booksession.html" style="margin-left: 10px;">Book a Session</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Booking Form -->
+  <div class="container booking-container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="booking-form">
+          <h2 class="text-center mb-4" style="color: var(--accent-color);">Book a Session</h2>
+
+          <!-- Step Indicator -->
+          <div class="step-indicator">
+            <div class="step active" id="step1">1</div>
+            <div class="step" id="step2">2</div>
+            <div class="step" id="step3">3</div>
+          </div>
+
+          <!-- Form Tabs -->
+          <div class="form-tabs">
+            <button class="tab-button active" id="personal-tab">Personal Details</button>
+            <button class="tab-button" id="session-tab">Session Details</button>
+            <button class="tab-button" id="schedule-tab">Schedule</button>
+          </div>
+
+          <form id="booking-form">
+            <!-- Personal Details Tab -->
+            <div class="tab-content active" id="personal-content">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="form-label" for="name">Full Name <span class="mandatory">*</span></label>
+                    <input type="text" class="form-control" id="name" name="name" required
+                      placeholder="Enter your full name">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="form-label" for="email">Email Address <span class="mandatory">*</span></label>
+                    <input type="email" class="form-control" id="email" name="email" required
+                      placeholder="Enter your email">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="form-label" for="phone">Phone Number <span class="mandatory">*</span></label>
+                    <div class="row">
+                      <div class="col-4">
+                        <select class="form-control" id="country-code" name="country-code" required>
+                          <option value="">Country Code</option>
+                          <option value="+1">+1 (US/Canada)</option>
+                          <option value="+44">+44 (UK)</option>
+                          <option value="+91">+91 (India)</option>
+                          <option value="+81">+81 (Japan)</option>
+                          <option value="+49">+49 (Germany)</option>
+                          <option value="+33">+33 (France)</option>
+                          <option value="+39">+39 (Italy)</option>
+                          <option value="+34">+34 (Spain)</option>
+                          <option value="+86">+86 (China)</option>
+                          <option value="+7">+7 (Russia)</option>
+                          <option value="+61">+61 (Australia)</option>
+                          <option value="+55">+55 (Brazil)</option>
+                          <option value="+27">+27 (South Africa)</option>
+                          <option value="+82">+82 (South Korea)</option>
+                          <option value="+65">+65 (Singapore)</option>
+                          <option value="+971">+971 (UAE)</option>
+                          <option value="+966">+966 (Saudi Arabia)</option>
+                          <option value="+20">+20 (Egypt)</option>
+                          <option value="+52">+52 (Mexico)</option>
+                          <option value="+31">+31 (Netherlands)</option>
+                          <option value="+46">+46 (Sweden)</option>
+                          <option value="+47">+47 (Norway)</option>
+                          <option value="+45">+45 (Denmark)</option>
+                          <option value="+41">+41 (Switzerland)</option>
+                          <option value="+43">+43 (Austria)</option>
+                          <option value="+32">+32 (Belgium)</option>
+                          <option value="+351">+351 (Portugal)</option>
+                          <option value="+30">+30 (Greece)</option>
+                          <option value="+90">+90 (Turkey)</option>
+                          <option value="+62">+62 (Indonesia)</option>
+                          <option value="+60">+60 (Malaysia)</option>
+                          <option value="+66">+66 (Thailand)</option>
+                          <option value="+84">+84 (Vietnam)</option>
+                          <option value="+63">+63 (Philippines)</option>
+                          <option value="+92">+92 (Pakistan)</option>
+                          <option value="+880">+880 (Bangladesh)</option>
+                          <option value="+94">+94 (Sri Lanka)</option>
+                          <option value="+977">+977 (Nepal)</option>
+                          <option value="+98">+98 (Iran)</option>
+                          <option value="+964">+964 (Iraq)</option>
+                          <option value="+962">+962 (Jordan)</option>
+                          <option value="+961">+961 (Lebanon)</option>
+                          <option value="+972">+972 (Israel)</option>
+                          <option value="+212">+212 (Morocco)</option>
+                          <option value="+213">+213 (Algeria)</option>
+                          <option value="+216">+216 (Tunisia)</option>
+                          <option value="+234">+234 (Nigeria)</option>
+                          <option value="+254">+254 (Kenya)</option>
+                          <option value="+256">+256 (Uganda)</option>
+                          <option value="+255">+255 (Tanzania)</option>
+                          <option value="+233">+233 (Ghana)</option>
+                          <option value="+251">+251 (Ethiopia)</option>
+                          <option value="+593">+593 (Ecuador)</option>
+                          <option value="+51">+51 (Peru)</option>
+                          <option value="+56">+56 (Chile)</option>
+                          <option value="+54">+54 (Argentina)</option>
+                          <option value="+57">+57 (Colombia)</option>
+                          <option value="+58">+58 (Venezuela)</option>
+                          <option value="+595">+595 (Paraguay)</option>
+                          <option value="+598">+598 (Uruguay)</option>
+                          <option value="+591">+591 (Bolivia)</option>
+                        </select>
+                      </div>
+                      <div class="col-8">
+                        <input type="tel" class="form-control" id="phone" name="phone" required pattern="[0-9]{6,15}"
+                          title="Please enter a valid phone number (6-15 digits)" placeholder="Enter your phone number">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="form-label" for="organization">Organization <span class="mandatory">*</span></label>
+                    <input type="text" class="form-control" id="organization" name="organization" required
+                      placeholder="Enter your organization">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="designation">Designation <span class="mandatory">*</span></label>
+                <input type="text" class="form-control" id="designation" name="designation" required
+                  placeholder="Enter your designation">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="location">Region <span class="mandatory">*</span></label>
+                <select class="form-control" id="location" name="location" required>
+                  <option value="">Select your Region</option>
+                  <option value="middle-east">Middle East / West Asia</option>
+                  <option value="europe">Europe</option>
+                  <option value="us">United States</option>
+                  <option value="india">India</option>
+                  <option value="japan">Japan</option>
+                  <option value="others">Others</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Add this div right after the location select -->
+            <div class="form-group" id="custom-region-container" style="display: none;">
+              <label class="form-label" for="custom-region">Please specify your region <span
+                  class="mandatory">*</span></label>
+              <input type="text" class="form-control" id="custom-region" name="custom-region"
+                placeholder="Enter your region...">
+            </div>
+
+            <!-- Session Details Tab -->
+            <div class="tab-content" id="session-content">
+              <div class="form-group">
+                <label class="form-label">Select Category <span class="mandatory">*</span></label>
+                <div class="session-type-options">
+                  <div class="session-option" data-category="consultancy">
+                    <h4>Consultancy</h4>
+                    <p>Expert consultation services with session-based engagement</p>
+                  </div>
+                  <div class="session-option" data-category="advisory">
+                    <h4>Advisory</h4>
+                    <p>Long-term advisory services and strategic guidance</p>
+                  </div>
+                </div>
+                <input type="hidden" id="service-category" name="service-category" required>
+              </div>
+                            <div class="form-group" id="session-types-section" style="display: none;">
+                <label class="form-label">Select the Type of Session <span class="mandatory">*</span></label>
+                <div class="availability-notice"
+                  style="background: rgba(255, 193, 7, 0.3); border-color: #ffc107; color: #ffc107;">
+                  <i class="fas fa-info-circle"></i>
+                  The charges may vary depending upon the session category.
+                </div>
+                <div class="session-type-options" id="consultancy-sessions">
+                  <div class="session-option" data-type="generalized">
+                    <h4>Generalized</h4>
+                    <!-- <p>Basic consultation session for general inquiries and overview discussions</p> -->
+                  </div>
+                  <div class="session-option" data-type="specialized">
+                    <h4>Specialized (Virtual)</h4>
+                    <!-- <p>In-depth virtual consultation on specific topics with detailed analysis</p> -->
+                  </div>
+                  <div class="session-option" data-type="super-specialized">
+                    <h4>Super-Specialized (In-Person)</h4>
+                    <!-- <p>Comprehensive in-person consultation with extensive expertise sharing</p> -->
+                  </div>
+                  <div class="session-option" data-type="long-term-engagement">
+                    <h4>Long-term Projects</h4>
+                    <!-- <p>Extended advisory partnership spanning 2-6 months with ongoing strategic support</p> -->
+                  </div>
+                </div>
+                <div id="advisory-message" style="display: none;">
+                  <div class="availability-notice">
+                    <i class="fas fa-clock"></i>
+                    <strong>Advisory Services:</strong><br>
+                    Thank you for your interest in our advisory services. We will get back to you within 48-72 working
+                    hours to discuss your requirements and customize our advisory approach.
+                  </div>
+                </div>
+                <input type="hidden" id="session-type" name="session-type" required>
+              </div>
+
+              <!-- What is covered section appears first in dynamic-questions -->
+              <div id="dynamic-questions"></div>
+
+              <!-- Then domain and region selection -->
+              <div class="form-group" id="domain-selection" style="display: none;">
+                <label class="form-label">Select Specialized Domain(s) <span class="mandatory">*</span></label>
+                <select class="form-control" id="domain-select" name="domain-select" required>
+                  <option value="">Select a domain</option>
+                  <option value="technology-diplomacy">Technology Diplomacy</option>
+                  <option value="space-power">Space Diplomacy</option>
+                  <option value="economic-diplomacy">Economic Diplomacy</option>
+                  <option value="defence">Defence</option>
+                  <option value="multi-domain">Multi-Domain</option>
+                  <option value="others">Others</option>
+                </select>
+                <input type="hidden" id="selected-domains" name="selected-domains">
+              </div>
+
+              <!-- Custom domain input - shows when "Others" is selected -->
+              <div class="form-group" id="custom-domain-container" style="display: none;">
+                <label class="form-label" for="custom-domain-input">Please specify your domain <span class="mandatory">*</span></label>
+                <input type="text" class="form-control" id="custom-domain-input" name="custom-domain-input"
+                  placeholder="Enter your specific domain..." required>
+              </div>
+
+              <div class="form-group" id="region-selection" style="display: none;">
+                <label class="form-label" for="region-select">Select Region(s) <span class="mandatory">*</span></label>
+                <select class="form-control" id="region-select" name="region-select" required>
+                  <option value="">Select a region</option>
+                  <option value="outer-space">Outer Space</option>
+                  <option value="rimland">Rimland</option>
+                  <option value="antarctic">Antarctic</option>
+                  <option value="arctic">Arctic</option>
+                  <option value="deep-sea">Deep Sea</option>
+                  <option value="others">Others</option>
+                </select>
+                <input type="hidden" id="selected-regions" name="selected-regions">
+              </div>
+
+              <!-- Custom region input - shows when "Others" is selected -->
+              <div class="form-group" id="custom-region-domain-container" style="display: none;">
+                <label class="form-label" for="custom-region-domain-input">Please specify your region <span class="mandatory">*</span></label>
+                <input type="text" class="form-control" id="custom-region-domain-input" name="custom-region-domain-input"
+                  placeholder="Enter your specific region..." required>
+              </div>
+
+              <!-- Finally, additional dynamic questions -->
+              <div id="additional-dynamic-questions"></div>
+
+              <div class="form-group" id="topic-section">
+                <label class="form-label" for="topic">What do you want to talk about? <span
+                    class="mandatory">*</span> <span style="font-size: 0.85rem; color: var(--accent-color); font-weight: normal; font-style: italic;">
+                  <i class="fas fa-info-circle"></i> Please ask your question in 50-100 words.
+                </span></label>
+                <textarea class="form-control" id="topic" name="topic" rows="4" required
+                  placeholder="Please describe the topics you'd like to discuss..."></textarea>
+              </div>
+
+              <div class="form-group" id="advisory-datetime" style="display: none;">
+                <label class="form-label">Preferred Date and Time to Contact <span class="mandatory">*</span></label>
+
+                <!-- Advisory Custom Calendar -->
+                <div class="advisory-calendar-container">
+                  <div class="calendar-section">
+                    <div class="calendar-header">
+                      <button type="button" id="advisory-prev-month" class="calendar-nav-btn">
+                        <i class="fas fa-chevron-left"></i>
+                      </button>
+                      <h6 id="advisory-calendar-title" class="calendar-title">June 2025</h6>
+                      <button type="button" id="advisory-next-month" class="calendar-nav-btn">
+                        <i class="fas fa-chevron-right"></i>
+                      </button>
+                    </div>
+                    <div class="calendar-grid" id="advisory-calendar-grid"></div>
+                  </div>
+
+                  <div class="time-selection-section">
+                    <div class="selected-date-info">
+                      <h6 id="advisory-selected-date-display">Select a date to choose time</h6>
+                    </div>
+                    <div class="advisory-timezone-notice-wrapper" id="advisory-timezone-notice-wrapper"></div>
+                    <div class="advisory-time-slots-container" id="advisory-time-slots-container">
+                      <div class="calendar-no-slots">Select a date from the calendar to view available time slots</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Hidden inputs to store selected values -->
+                <input type="hidden" id="advisory-selected-date" name="advisory-selected-date" required>
+                <input type="hidden" id="advisory-selected-time" name="advisory-selected-time" required>
+                <input type="hidden" id="advisory-selected-datetime" name="advisory-datetime" required>
+              </div>
+
+              <div id="dynamic-questions"></div>
+
+              <div class="consent-section">
+                <div class="form-check">
+                  <div class="custom-checkbox">
+                    <input type="checkbox" id="data-consent" name="data-consent" required>
+                    <span class="checkbox-custom"></span>
+                  </div>
+                  <label class="form-check-label" for="data-consent">
+                    I give consent to save my data for session management purposes.
+                  </label>
+                </div>
+                <div class="form-check">
+                  <div class="custom-checkbox">
+                    <input type="checkbox" id="terms-consent" name="terms-consent" required>
+                    <span class="checkbox-custom"></span>
+                  </div>
+                  <label class="form-check-label" for="terms-consent">
+                    I agree to the <a href="#" class="terms-link" data-bs-toggle="modal"
+                      data-bs-target="#termsModal">Terms and Conditions</a>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Schedule Tab -->
+            <div class="tab-content" id="schedule-content">
+              <div class="availability-notice">
+                <i class="fas fa-info-circle"></i>
+                These slots are subject to the availability of advisor/consultant.
+              </div>
+
+              <!-- Add region display and timezone selector -->
+              <div class="form-group">
+                <div class="availability-notice"
+                  style="background: rgba(52, 152, 219, 0.1); border-color: rgba(52, 152, 219, 0.3); color: #3498db;">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <div class="selected-region-display">
+                    <strong>Selected Region:</strong> <span id="display-selected-region">Not selected</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="timezone-selector">Select Timezone for Display</label>
+                <select class="form-control" id="timezone-selector" name="timezone-selector">
+                  <option value="">Auto (Based on Region)</option>
+                  <option value="Asia/Dubai">Middle East (GST - UTC+4)</option>
+                  <option value="Europe/London">European Standard Time (GMT/BST - UTC+0/+1)</option>
+                  <option value="America/New_York">Eastern Standard Time - US (EST/EDT - UTC-5/-4)</option>
+                  <option value="Asia/Kolkata">India (IST - UTC+5:30)</option>
+                  <option value="Asia/Tokyo">Japan (JST - UTC+9)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="calendar-container">Select Your Preferred Date & Time <span
+                    class="mandatory">*</span></label>
+                <div class="calendar-booking-container">
+                  <div class="calendar-wrapper">
+                    <div class="calendar-header">
+                      <button type="button" class="calendar-nav-btn" id="prev-month">
+                        <i class="fas fa-chevron-left"></i>
+                      </button>
+                      <div class="calendar-title" id="calendar-title"></div>
+                      <button type="button" class="calendar-nav-btn" id="next-month">
+                        <i class="fas fa-chevron-right"></i>
+                      </button>
+                    </div>
+                    <div class="calendar-grid" id="calendar-grid">
+                      <!-- Calendar dates will be populated dynamically -->
+                    </div>
+                  </div>
+                  <div class="time-slots-wrapper">
+                    <div class="selected-date-display" id="selected-date-display">
+                      Select a date to view available time slots
+                    </div>
+                    <div class="timezone-notice-wrapper" id="timezone-notice-wrapper">
+                      <!-- Timezone notice will be populated dynamically -->
+                    </div>
+                    <div class="time-slots" id="time-slots-container">
+                      <!-- Time slots will be populated dynamically -->
+                    </div>
+                  </div>
+                </div>
+                <input type="hidden" id="selected-slot" name="selected-slot" required>
+                <input type="hidden" id="selected-date" name="selected-date">
+                <input type="hidden" id="selected-time" name="selected-time">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="additional-notes">Additional Notes</label>
+                <textarea class="form-control" id="additional-notes" name="additional-notes" rows="3"
+                  placeholder="Any additional information or special requirements..."></textarea>
+              </div>
+            </div>
+
+            <!-- CAPTCHA Section -->
+            <div class="form-group" id="captcha-section" style="display: none; margin-top: 20px; text-align: center;">
+              <div class="g-recaptcha" data-sitekey="6LdWcsgsAAAAALCImo9ga4I1LlWhFh1_CxFW3wib" style="display: inline-block;"></div>
+              <div id="captcha-error" style="color: #dc3545; margin-top: 10px; display: none;">
+                <i class="fas fa-exclamation-triangle"></i> Please complete the CAPTCHA verification
+              </div>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="navigation-buttons">
+              <button type="button" class="btn btn-secondary" id="prev-btn" style="display: none;">Previous</button>
+              <button type="button" class="btn btn-primary" id="next-btn">Next</button>
+              <button type="submit" class="btn btn-primary" id="submit-btn" style="display: none;">Submit
+                Booking</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Terms and Conditions Modal -->
+  <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="termsModalLabel">Terms and Conditions</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <h6>1. Consultation Services</h6>
+          <p>The consultation services provided are for advisory purposes only. The consultant will provide insights and
+            recommendations based on expertise and experience.</p>
+
+          <h6>2. Confidentiality</h6>
+          <p>All information shared during the consultation will be kept confidential and will not be disclosed to third
+            parties without explicit consent.</p>
+
+          <h6>3. Data Privacy</h6>
+          <p>Personal data collected will be used solely for the purpose of providing consultation services and will be
+            handled in accordance with applicable data protection laws.</p>
+
+          <h6>4. Cancellation Policy</h6>
+          <p>Sessions can be rescheduled with at least 24 hours notice. Cancellations made with less than 24 hours
+            notice may be subject to charges.</p>
+
+          <h6>5. Liability</h6>
+          <p>The consultant's liability is limited to the consultation fees paid. The consultant is not responsible for
+            any decisions or actions taken based on the advice provided.</p>
+
+          <h6>6. Payment Terms</h6>
+          <p>Payment details will be communicated separately based on the type of session selected.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="accept-terms" data-bs-dismiss="modal">Accept Terms</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script type="module" src="./js/config.js"></script>
+  <script type="module" src="./js/booksession.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.js'></script>
+
+  <!-- Back to Top Button -->
+  <a href="#" id="back-to-top" class="btn btn-primary back-to-top position-fixed bottom-0 end-0 m-4 rounded-circle"
+    style="width: 50px; height: 50px; display: none; align-items: center; justify-content: center; opacity: 0.7;">
+    <i class="fas fa-rocket" style="transform: rotate(-45deg);"></i>
+  </a>
+
+  <script>
+    // Back to top button functionality
+    $(window).scroll(function () {
+      if ($(this).scrollTop() > 300) {
+        $('#back-to-top').fadeIn();
+      } else {
+        $('#back-to-top').fadeOut();
+      }
+    });
+
+    $('#back-to-top').click(function (e) {
+      e.preventDefault();
+      
+      // Add flying animation
+      $(this).css({
+        'transition': 'transform 0.6s ease-out, opacity 0.6s ease-out',
+        'transform': 'translateY(-100vh)',
+        'opacity': '0'
+      });
+      
+      // Scroll to top smoothly
+      $('html, body').animate({ scrollTop: 0 }, 600);
+      
+      // Reset button position after animation
+      setTimeout(() => {
+        $(this).css({
+          'transition': 'none',
+          'transform': 'translateY(0)',
+          'opacity': '0.7'
+        });
+      }, 600);
+      
+      return false;
+    });
+  </script>
+
+</body>
+
+</html>

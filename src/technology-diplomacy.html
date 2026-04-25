@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Technology Diplomacy - Anurag Sharma</title>
+  <link rel="icon" type="image/x-icon" href="/assets/logo-for-title.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <style>
+    /* Increased navbar link spacing on desktop */
+    @media (min-width: 992px) {
+      .navbar-nav .nav-item {
+        margin-left: 8px;
+        margin-right: 8px;
+      }
+      
+      .navbar-nav .nav-item:first-child {
+        margin-left: 0;
+      }
+    }
+    
+    /* Additional styles for expertise detail pages */
+    .expertise-header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 8rem 0 3rem;
+      position: relative;      border-radius: 15px;    }
+
+    .expertise-header .icon {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .expertise-header {
+        padding: 6rem 0 2rem;
+        border-radius: 15px;
+      }
+      .expertise-header .icon {
+        font-size: 2.5rem;
+        display: block;
+      }
+      .expertise-header h1 {
+        font-size: 1.8rem;
+      }
+      .expertise-header .lead {
+        font-size: 0.95rem;
+        padding: 0 15px;
+      }
+    }
+
+    .content-section {
+      padding: 4rem 0;
+    }
+
+    .light-section {
+      background-color: #f9f9f9;
+    }
+
+    .key-points {
+      margin: 2rem 0;
+    }
+
+    .key-point {
+      display: flex;
+      margin-bottom: 1.5rem;
+      align-items: flex-start;
+    }
+
+    .key-point i {
+      color: var(--primary-color);
+      margin-right: 1rem;
+      font-size: 1.2rem;
+      margin-top: 0.2rem;
+    }
+
+    .related-publications {
+      margin-top: 2rem;
+    }
+
+    .publication-card {
+      margin-bottom: 1.5rem;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s;
+      height: 100%;
+      background-color: white;
+    }
+
+    .btn-light{
+      background-color: var(--accent-color);
+      color: #fff;
+    }
+
+    .publication-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .publication-card h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary-color);
+    }
+
+    .publication-card .journal {
+      font-style: italic;
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    .quote-section {
+      background-color: rgba(var(--primary-color-rgb), 0.05);
+      border-left: 4px solid var(--primary-color);
+      padding: 2rem;
+      margin: 2rem 0;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .quote-text {
+      font-style: italic;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    .quote-author {
+      font-weight: 600;
+      text-align: right;
+    }
+
+    .call-to-action {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 3rem 0;
+      text-align: center;
+    }
+
+    .call-to-action h3 {
+      margin-bottom: 1.5rem;
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 1200px;
+      margin: 3rem auto;
+    }
+
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 6px;
+      background-color: var(--primary-color);
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -3px;
+    }
+
+    .timeline-container {
+      padding: 10px 40px;
+      position: relative;
+      background-color: inherit;
+      width: 50%;
+    }
+
+    .timeline-container::after {
+      content: '';
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      right: -12px;
+      background-color: white;
+      border: 4px solid var(--primary-color);
+      top: 15px;
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    .left {
+      left: 0;
+    }
+
+    .right {
+      left: 50%;
+    }
+
+    .left::before {
+      content: '';
+      height: 0;
+      position: absolute;
+      top: 22px;
+      width: 0;
+      z-index: 1;
+      right: 30px;
+      border: medium solid var(--primary-color);
+      border-width: 10px 0 10px 10px;
+      border-color: transparent transparent transparent var(--primary-color);
+    }
+
+    .right::before {
+      content: '';
+      height: 0;
+      position: absolute;
+      top: 22px;
+      width: 0;
+      z-index: 1;
+      left: 30px;
+      border: medium solid var(--primary-color);
+      border-width: 10px 10px 10px 0;
+      border-color: transparent var(--primary-color) transparent transparent;
+    }
+
+    .right::after {
+      left: -12px;
+    }
+
+    .timeline-content {
+      padding: 20px 30px;
+      background-color: white;
+      position: relative;
+      border-radius: 6px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .timeline-year {
+      font-weight: bold;
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+    }
+
+    @media screen and (max-width: 768px) {
+      .timeline::after {
+        left: 31px;
+      }
+
+      .timeline-container {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+      }
+
+      .timeline-container::before {
+        left: 60px;
+        border: medium solid var(--primary-color);
+        border-width: 10px 10px 10px 0;
+        border-color: transparent var(--primary-color) transparent transparent;
+      }
+
+      .left::after, .right::after {
+        left: 18px;
+      }
+
+      .right {
+        left: 0%;
+      }
+    }
+
+    .back-link {
+      margin-bottom: 2rem;
+      display: inline-block;
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding-top: 70px;
+      }
+    }
+  </style>
+</head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-30GRQXD0XM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-30GRQXD0XM');
+</script>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <img src="./assets/logo_with_globe.png" class="logo" />
+      <a class="navbar-brand" href="#"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html#expertise">Expertise</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#publications">Publications</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="subject-matter-knowledge.html">Subject Matter Knowledge</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="conferences-delegations.html">Conferences</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#workedwith">Engagements</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#contact">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-primary" href="booksession.html" style="margin-left: 10px;">Book a Session</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header Section -->
+  <header class="expertise-header">
+    <div class="container">
+      <div class="text-center">
+        <i class="fa-solid fa-handshake icon"></i>
+        <h1>Technology Diplomacy</h1>
+        <p class="lead">Examining the impact of critical and emerging technologies on international relations and society</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Overview Section -->
+  <!-- <section class="content-section">
+    <div class="container">
+      <a href="index.html#expertise" class="back-link"><i class="fas fa-arrow-left me-2"></i>Back to Expertise</a>
+      
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2>Overview</h2>
+          <p class="lead">Technology Diplomacy is a discipline that examines the impact of critical and emerging technologies on global trade, international relations, domestic policy, commercial activities, human activities, and society at large.</p>
+          
+          <p>In an increasingly interconnected world, technological advancement has fundamentally altered how nations interact, cooperate, and compete. Technology diplomacy encompasses the strategies, policies, and diplomatic efforts that nations employ to advance their technological interests while addressing global challenges that transcend borders.</p>
+          
+          <div class="quote-section">
+            <p class="quote-text">"Technology has become the new currency of power in international relations. Nations that effectively leverage technology diplomacy will be better positioned to shape global norms, standards, and governance frameworks in line with their values and interests."</p>
+            <p class="quote-author">— Anurag Sharma</p>
+          </div>
+          
+          <p>My research and advisory work in technology diplomacy focuses on analyzing how technological innovation influences geopolitical dynamics, examining the role of multilateral institutions in technology governance, and developing frameworks for responsible innovation that balance national security interests with the benefits of open technological exchange.</p>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- Key Points Section -->
+  <!-- <section class="content-section light-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2>Key Dimensions of Technology Diplomacy</h2>
+          
+          <div class="key-points">
+            <div class="key-point">
+              <i class="fas fa-microchip"></i>
+              <div>
+                <h4>Critical and Emerging Technologies</h4>
+                <p>Artificial intelligence, quantum computing, biotechnology, and other emerging technologies are reshaping international relations and creating new domains for cooperation and competition among states.</p>
+              </div>
+            </div>
+            
+            <div class="key-point">
+              <i class="fas fa-shield-alt"></i>
+              <div>
+                <h4>Digital Security and Sovereignty</h4>
+                <p>Nations are increasingly focused on protecting critical digital infrastructure, ensuring data sovereignty, and developing cyber capabilities as essential elements of national security and technological autonomy.</p>
+              </div>
+            </div>
+            
+            <div class="key-point">
+              <i class="fas fa-balance-scale"></i>
+              <div>
+                <h4>Technology Governance</h4>
+                <p>The development of international norms, standards, and regulatory frameworks to govern emerging technologies and ensure they contribute to human welfare and sustainable development.</p>
+              </div>
+            </div>
+            
+            <div class="key-point">
+              <i class="fas fa-globe-americas"></i>
+              <div>
+                <h4>Digital Trade and Economic Integration</h4>
+                <p>Digital trade policies, technology transfer mechanisms, and intellectual property frameworks shape how nations participate in the global digital economy and innovation ecosystem.</p>
+              </div>
+            </div>
+            
+            <div class="key-point">
+              <i class="fas fa-users"></i>
+              <div>
+                <h4>Multi-stakeholder Engagement</h4>
+                <p>Technology diplomacy increasingly involves non-state actors, including tech companies, civil society organizations, and academic institutions, in shaping global technology governance.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- Historical Timeline Section -->
+  <!-- <section class="content-section">
+    <div class="container">
+      <h2 class="text-center mb-5">Evolution of Technology Diplomacy</h2>
+      
+      <div class="timeline">
+        <div class="timeline-container left">
+          <div class="timeline-content">
+            <div class="timeline-year">1980s-1990s</div>
+            <h4>Digital Revolution Era</h4>
+            <p>The emergence of personal computing and the internet created new domains for international cooperation, with early discussions on global information infrastructure and telecommunications standards.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-container right">
+          <div class="timeline-content">
+            <div class="timeline-year">2000s</div>
+            <h4>Global Internet Governance</h4>
+            <p>Formation of multi-stakeholder bodies like ICANN and the Internet Governance Forum, alongside growing debates about the role of states in internet governance and digital sovereignty.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-container left">
+          <div class="timeline-content">
+            <div class="timeline-year">2010s</div>
+            <h4>Cybersecurity and Digital Trade</h4>
+            <p>Rising prominence of cybersecurity in international relations, emergence of digital trade agreements, and growing recognition of technology as a strategic asset in geopolitical competition.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-container right">
+          <div class="timeline-content">
+            <div class="timeline-year">2020s-Present</div>
+            <h4>New Technology Order</h4>
+            <p>Strategic competition over emerging technologies like AI and quantum computing, formation of technology alliances, and growing concerns about technological decoupling and supply chain resilience.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- Related Publications Section -->
+<section class="content-section light-section">
+  <div class="container">
+    <h2 class="text-center mb-4">Related Publications</h2>
+    
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <div class="publication-card">
+          <h4>Technology Diplomacy in India Taiwan Ties</h4>
+          <p class="journal">Newsletter Article (Formosa Watch)</p>
+          <p class="journal">Center for North East Asian Studies (New Delhi, India), 2024</p>
+          <p>An analysis of technology diplomacy as a tool for strengthening relations between India and Taiwan,
+            focusing on semiconductor industry collaboration and digital partnerships.</p>
+          <a href="https://jgu.s3.ap-south-1.amazonaws.com/jsia/Formosa+Watch+Newsletter.pdf" class="btn btn-sm btn-outline-primary">Read More</a>
+        </div>
+      </div>
+      
+      <!-- <div class="col-md-4 mb-4">
+        <div class="publication-card">
+          <h4>Proxy Warfare through Cyberspace: Lesson from Ukraine and Israel Affairs</h4>
+          <p class="journal">Research Paper</p>
+          <p class="journal">Borderman Institute of Border Security Studies (New Delhi, India), 2024</p>
+          <p>An analysis of emerging cyber warfare tactics employed in recent conflicts, with implications for 
+            border security and national defense strategies.</p>
+          <a href="https://borderman.in/blogs/proxy-warfare-through-cyber-space-lessons-for-border-security-from-ukraine-and-israel-affairs/" class="btn btn-sm btn-outline-primary">Read More</a>
+        </div>
+      </div> -->
+      
+      <div class="col-md-4 mb-4">
+        <div class="publication-card">
+          <h4>Europe-India Space Cooperation: A Comprehensive Study of 100-year Engagement and Beyond</h4>
+          <p class="journal">Research Paper</p>
+          <p class="journal">Europe India Center for Business and Industries (Kochi, India), 2024</p>
+          <p>A comprehensive analysis of the historical and future prospects of space cooperation between Europe and India, 
+            covering technological exchanges, joint missions, and economic implications.</p>
+          <a href="https://www.eicbi.org/post/europe-india-space-cooperation-a-comprehensive-study-of-100-year-engagement-and-beyond" class="btn btn-sm btn-outline-primary">Read More</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="text-center mt-4">
+      <a href="publications.html" class="btn btn-primary">View All Publications</a>
+    </div>
+  </div>
+</section>
+
+  <!-- Call to Action Section -->
+  <section class="call-to-action">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+          <h3>Interested in Technology Diplomacy Consulting?</h3>
+          <p class="lead mb-4">Book a consultation session to discuss emerging technology policy, digital governance considerations, or strategic planning for your organization.</p>
+          <a href="./booksession.html" target="_blank" class="btn btn-light">Book a Session</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center mb-3 mb-md-0">
+          <p>&copy; 2026 Anurag Sharma. All Rights Reserved. | <a href="privacy-policy.html" style="color: var(--accent-color); text-decoration: none;">Privacy & Cookie Policy</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <a href="#" id="back-to-top" class="btn btn-primary back-to-top position-fixed bottom-0 end-0 m-4 rounded-circle"
+    style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; opacity: 0.7; display: none;">
+    <i class="fas fa-rocket" style="transform: rotate(-45deg);"></i>
+  </a>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Mobile navbar link click handler
+    document.addEventListener('DOMContentLoaded', function() {
+      const navLinks = document.querySelectorAll('.navbar-nav .nav-link, .navbar-nav .btn');
+      const navbarCollapse = document.querySelector('.navbar-collapse');
+      
+      navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          document.body.classList.remove('mobile-menu-open');
+          if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+            const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+            if (bsCollapse) bsCollapse.hide();
+          }
+        });
+      });
+    });
+    
+    // Back to top button
+    $(window).scroll(function () {
+      if ($(this).scrollTop() > 300) {
+        $('#back-to-top').fadeIn();
+      } else {
+        $('#back-to-top').fadeOut();
+      }
+    });
+
+    $('#back-to-top').click(function (e) {
+      e.preventDefault();
+      
+      // Add flying animation
+      $(this).css({
+        'transition': 'transform 0.6s ease-out, opacity 0.6s ease-out',
+        'transform': 'translateY(-100vh)',
+        'opacity': '0'
+      });
+      
+      // Scroll to top smoothly
+      $('html, body').animate({ scrollTop: 0 }, 600);
+      
+      // Reset button position after animation
+      setTimeout(() => {
+        $(this).css({
+          'transition': 'none',
+          'transform': 'translateY(0)',
+          'opacity': '0.7'
+        });
+      }, 600);
+      
+      return false;
+    });
+
+    // Navigation scroll behavior
+    $(window).scroll(function () {
+      if ($(window).scrollTop() > 50) {
+        $('.navbar').addClass('scrolled');
+      } else {
+        $('.navbar').removeClass('scrolled');
+      }
+    });
+
+    // Trigger scroll event on page load to set initial navbar state
+    $(window).trigger('scroll');
+  </script>
+</body>
+
+</html>

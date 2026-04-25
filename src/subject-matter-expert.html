@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SMK - Subject Matter Knowledge - Anurag Sharma</title>
+  <link rel="icon" type="image/x-icon" href="./assets/logo_with_globe.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <style>
+    /* Additional styles for expertise detail pages */
+    .expertise-header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 8rem 0 3rem;
+      position: relative;
+    }
+
+    .expertise-header .icon {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .expertise-header {
+        padding: 6rem 0 2rem;
+      }
+      .expertise-header .icon {
+        font-size: 2.5rem;
+        display: block;
+      }
+      .expertise-header h1 {
+        font-size: 1.8rem;
+      }
+      .expertise-header .lead {
+        font-size: 0.95rem;
+        padding: 0 15px;
+      }
+    }
+
+    .content-section {
+      padding: 4rem 0;
+    }
+
+    .light-section {
+      background-color: #f9f9f9;
+    }
+
+    .expertise-area-detail {
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+
+    .expertise-area-detail:hover {
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      transform: translateY(-3px);
+    }
+
+    .expertise-area-detail h3 {
+      color: var(--primary-color);
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .expertise-area-detail h3 i {
+      font-size: 2rem;
+      color: var(--accent-color);
+    }
+
+    .expertise-area-detail p {
+      color: #333;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 15px;
+    }
+
+    .expertise-area-detail ul {
+      color: #555;
+      padding-left: 20px;
+    }
+
+    .expertise-area-detail ul li {
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+
+    .services-offered {
+      background-color: #f9f9f9;
+      padding: 4rem 0;
+    }
+
+    .services-offered h2 {
+      color: var(--primary-color);
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2.5rem;
+    }
+
+    .service-item {
+      background: white;
+      border-radius: 10px;
+      padding: 25px;
+      margin-bottom: 20px;
+      border-left: 4px solid var(--accent-color);
+      transition: all 0.3s ease;
+      height: 100%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .service-item:hover {
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      transform: translateX(5px);
+    }
+
+    .service-item h4 {
+      color: var(--primary-color);
+      margin-bottom: 15px;
+      font-size: 1.4rem;
+    }
+
+    .service-item h4 i {
+      color: var(--accent-color);
+      margin-right: 10px;
+    }
+
+    .service-item p {
+      color: #555;
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    .call-to-action {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 3rem 0;
+      text-align: center;
+    }
+
+    .call-to-action h3 {
+      margin-bottom: 1rem;
+    }
+
+    .call-to-action p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding-top: 50px;
+      }
+    }
+  </style>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-30GRQXD0XM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-30GRQXD0XM');
+</script>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a href="index.html">
+        <img src="./assets/logo_with_globe.png" class="logo" alt="Anurag Sharma Logo" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#expertise">Expertise</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#publications">Publications</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="subject-matter-expert.html">SMK</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="events.html">Events</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#workedwith">Engagements</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#contact">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-primary" href="booksession.html" style="margin-left: 10px;">Book a Session</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header Section -->
+  <header class="expertise-header">
+    <div class="container">
+      <div class="text-center">
+        <i class="fas fa-graduation-cap icon"></i>
+        <h1>SMK - Subject Matter Knowledge</h1>
+        <p class="lead">Deep expertise across multiple domains, backed by continuous learning and professional certifications</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Subject Matter Knowledge Section -->
+  <section class="content-section">
+    <div class="container">
+      <h2 style="text-align: center; margin-bottom: 3rem; color: var(--primary-color); font-size: 2.5rem;">
+        <i class="fas fa-book-open"></i> Subject Matter Knowledge
+      </h2>
+      <div class="row">
+        <div class="col-lg-12">
+          <div style="max-width: 800px; margin: 0 auto; padding: 20px;">
+            <ul style="list-style: none; padding: 0; font-size: 1.1rem; line-height: 2.2; color: #333;">
+              <li style="padding: 8px 0;">• International Relations Theories and Praxis</li>
+              <li style="padding: 8px 0;">• International Trade</li>
+              <li style="padding: 8px 0;">• International Law</li>
+              <li style="padding: 8px 0;">• National Security, Defence & Military Strategy</li>
+              <li style="padding: 8px 0;">• Political and Business Risk Management</li>
+              <li style="padding: 8px 0;">• Security Dynamics in Indo-Pacific</li>
+              <li style="padding: 8px 0;">• Europe in Indo-Pacific</li>
+              <li style="padding: 8px 0;">• Mediterranean Politics</li>
+              <li style="padding: 8px 0;">• Politics of Middle-East and North Africa</li>
+              <li style="padding: 8px 0;">• Tibetans in India</li>
+              <li style="padding: 8px 0;">• Sports and International Relations</li>
+              <li style="padding: 8px 0;">• Para-Diplomacy</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications Section -->
+  <section class="content-section light-section">
+    <div class="container">
+      <h2 style="text-align: center; margin-bottom: 3rem; color: var(--primary-color); font-size: 2.5rem;">
+        <i class="fas fa-certificate"></i> Professional Certifications
+      </h2>
+      <div class="row">
+        <div class="col-lg-12">
+          <div style="max-width: 800px; margin: 0 auto; padding: 20px;">
+            <ul style="list-style: none; padding: 0; font-size: 1.1rem; line-height: 2.2; color: #333;">
+              <li style="padding: 8px 0;">• Certificate Course on Emerging Technologies and Security</li>
+              <li style="padding: 8px 0;">• Capsule Course: Space Power</li>
+              <li style="padding: 8px 0;">• Capsule Course: Kashmir Shaivism</li>
+              <li style="padding: 8px 0;">• The Politics and Economics of International Trade in the 21st Century</li>
+              <li style="padding: 8px 0;">• National Service Scheme (NSS)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Languages Section -->
+  <section class="content-section" id="languages">
+    <div class="container">
+      <h2 style="text-align: center; margin-bottom: 3rem; color: var(--primary-color); font-size: 2.5rem;">
+        <i class="fas fa-language"></i> Languages
+      </h2>
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="expertise-area-detail" style="text-align: center; padding: 40px;">
+            <p style="font-size: 1.2rem; margin-bottom: 30px; color: #555;">
+              As a polyglot with proficiency in multiple languages, I bring a unique perspective to cross-cultural communication and international engagement:
+            </p>
+            <div class="languages-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; max-width: 800px; margin: 0 auto;">
+              <div class="language-item" style="padding: 15px; background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 8px; text-align: center;">
+                <h5 style="margin: 0; color: var(--primary-color);">English</h5>
+              </div>
+              <div class="language-item" style="padding: 15px; background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 8px; text-align: center;">
+                <h5 style="margin: 0; color: var(--primary-color);">German</h5>
+              </div>
+              <div class="language-item" style="padding: 15px; background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 8px; text-align: center;">
+                <h5 style="margin: 0; color: var(--primary-color);">French</h5>
+              </div>
+              <div class="language-item" style="padding: 15px; background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 8px; text-align: center;">
+                <h5 style="margin: 0; color: var(--primary-color);">Russian</h5>
+              </div>
+              <div class="language-item" style="padding: 15px; background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 8px; text-align: center;">
+                <h5 style="margin: 0; color: var(--primary-color);">Arabic</h5>
+              </div>
+              <div class="language-item" style="padding: 15px; background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 8px; text-align: center;">
+                <h5 style="margin: 0; color: var(--primary-color);">Hindi</h5>
+              </div>
+              <div class="language-item" style="padding: 15px; background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 8px; text-align: center;">
+                <h5 style="margin: 0; color: var(--primary-color);">Sanskrit</h5>
+              </div>
+              <div class="language-item" style="padding: 15px; background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 8px; text-align: center;">
+                <h5 style="margin: 0; color: var(--primary-color);">Punjabi</h5>
+              </div>
+              <div class="language-item" style="padding: 15px; background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 8px; text-align: center;">
+                <h5 style="margin: 0; color: var(--primary-color);">Urdu</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Offered Section -->
+  <section class="services-offered">
+    <div class="container">
+      <h2>Services Offered</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="service-item">
+            <h4><i class="fas fa-users"></i> Strategic Consultation</h4>
+            <p>One-on-one consultation sessions for strategic planning, policy development, and decision-making in
+              space diplomacy, defence, and technology sectors.</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="service-item">
+            <h4><i class="fas fa-file-alt"></i> Research & Analysis</h4>
+            <p>Customized research reports, white papers, and analytical briefs on specific topics related to space
+              power, geopolitics, and emerging technologies.</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="service-item">
+            <h4><i class="fas fa-chalkboard-teacher"></i> Training & Workshops</h4>
+            <p>Specialized training programs and workshops for government officials, corporate leaders, and academic
+              institutions on space diplomacy and strategic affairs.</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="service-item">
+            <h4><i class="fas fa-lightbulb"></i> Policy Advisory</h4>
+            <p>Expert advisory services for policy formulation, implementation strategies, and regulatory framework
+              development in space, defence, and technology domains.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="call-to-action">
+    <div class="container">
+      <h3>Ready to Collaborate?</h3>
+      <p>Schedule a consultation session to discuss your strategic needs and explore how my expertise can support your objectives.</p>
+      <a href="booksession.html" class="btn btn-primary btn-lg">
+        <i class="fas fa-calendar-alt"></i> Book a Session Now
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center mb-3 mb-md-0">
+          <p>&copy; 2025 Anurag Sharma. All Rights Reserved. | <a href="privacy-policy.html" style="color: var(--accent-color); text-decoration: none;">Privacy & Cookie Policy</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <a href="#" id="back-to-top" class="btn btn-primary back-to-top position-fixed bottom-0 end-0 m-4 rounded-circle"
+    style="width: 50px; height: 50px; display: none; align-items: center; justify-content: center; opacity: 0.7;">
+    <i class="fas fa-rocket"></i>
+  </a>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="./js/script.js"></script>
+  <script>
+    // Back to top button functionality
+    $(window).scroll(function () {
+      if ($(this).scrollTop() > 300) {
+        $('#back-to-top').fadeIn();
+      } else {
+        $('#back-to-top').fadeOut();
+      }
+    });
+
+    $('#back-to-top').click(function () {
+      $('html, body').animate({ scrollTop: 0 }, 800);
+      return false;
+    });
+
+    // Navigation scroll behavior
+    $(window).scroll(function () {
+      if ($(window).scrollTop() > 50) {
+        $('.navbar').addClass('scrolled');
+      } else {
+        $('.navbar').removeClass('scrolled');
+      }
+    });
+
+    // Trigger scroll event on page load to set initial navbar state
+    $(window).trigger('scroll');
+  </script>
+</body>
+
+</html>

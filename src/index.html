@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anurag Sharma - Founder Director of Space Affairs Consultancy for Advanced Research - SACAR Private
+    Limited</title>
+  <link rel="icon" type="image/x-icon" href="./assets/logo-for-title.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <style>
+    /* Increased navbar link spacing on desktop */
+    @media (min-width: 992px) {
+      .navbar-nav .nav-item {
+        margin-left: 8px;
+        margin-right: 8px;
+      }
+
+      .navbar-nav .nav-item:first-child {
+        margin-left: 0;
+      }
+    }
+
+    /* Mobile fix for content hidden behind header */
+    @media (max-width: 768px) {
+
+      .expertise-section,
+      .companies-section,
+      .publications-section,
+      .contact-section-simple {
+        margin-top: 0;
+        /* Reset any existing margin */
+      }
+
+      body {
+        padding-top: 50px;
+      }
+    }
+
+    /* Cookie Consent Banner */
+    .cookie-consent {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(135deg, rgba(15, 32, 39, 0.98) 0%, rgba(0, 0, 0, 0.98) 100%);
+      color: white;
+      padding: 20px;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+      z-index: 10000;
+      display: none;
+      backdrop-filter: blur(10px);
+      border-top: 2px solid var(--accent-color);
+    }
+
+    .cookie-consent.show {
+      display: block;
+      animation: slideUp 0.5s ease-out;
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(100%);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .cookie-consent-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .cookie-consent-text {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .cookie-consent-text p {
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .cookie-consent-text a {
+      color: var(--accent-color);
+      text-decoration: underline;
+    }
+
+    .cookie-consent-buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .cookie-btn {
+      padding: 10px 24px;
+      border: none;
+      border-radius: 5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-size: 0.9rem;
+    }
+
+    .cookie-btn-accept {
+      background-color: var(--accent-color);
+      color: white;
+    }
+
+    .cookie-btn-accept:hover {
+      background-color: #e13517;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4);
+    }
+
+    .cookie-btn-manage {
+      background-color: transparent;
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .cookie-btn-manage:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .cookie-btn-decline {
+      background-color: #6c757d;
+      color: white;
+      border: 1px solid #6c757d;
+    }
+
+    .cookie-btn-decline:hover {
+      background-color: #5a6268;
+      border-color: #545b62;
+    }
+
+    /* Cookie Modal Styles */
+    .cookie-modal {
+      display: none;
+      position: fixed;
+      z-index: 10001;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(5px);
+    }
+
+    .cookie-modal-content {
+      background-color: white;
+      margin: 5% auto;
+      padding: 0;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 600px;
+      max-height: 80vh;
+      overflow-y: auto;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    .cookie-modal-header {
+      padding: 20px 25px;
+      background: linear-gradient(135deg, var(--primary-color) 0%, #1a365d 100%);
+      color: white;
+      border-radius: 10px 10px 0 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cookie-modal-header h3 {
+      margin: 0;
+      font-size: 1.3rem;
+    }
+
+    .cookie-modal-close {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      padding: 0;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: background-color 0.3s;
+    }
+
+    .cookie-modal-close:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .cookie-modal-body {
+      padding: 25px;
+    }
+
+    .cookie-modal-body>p {
+      color: #666;
+      margin-bottom: 25px;
+      line-height: 1.6;
+    }
+
+    .cookie-category {
+      margin-bottom: 20px;
+      padding: 15px;
+      border: 1px solid #e9ecef;
+      border-radius: 8px;
+      background-color: #f8f9fa;
+    }
+
+    .cookie-category-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .cookie-category-info h4 {
+      margin: 0 0 8px 0;
+      font-size: 1.1rem;
+      color: #333;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cookie-category-info p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #666;
+      line-height: 1.4;
+    }
+
+    .required-badge {
+      background-color: var(--accent-color);
+      color: white;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+
+    /* Cookie Switch Styles */
+    .cookie-switch {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 24px;
+      flex-shrink: 0;
+      align-self: flex-start;
+    }
+
+    .cookie-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .cookie-slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: 0.3s;
+      border-radius: 24px;
+    }
+
+    .cookie-slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: 0.3s;
+      border-radius: 50%;
+    }
+
+    input:checked+.cookie-slider {
+      background-color: var(--primary-color);
+    }
+
+    input:checked+.cookie-slider.essential {
+      background-color: var(--accent-color);
+    }
+
+    input:disabled+.cookie-slider {
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
+
+    input:checked+.cookie-slider:before {
+      transform: translateX(26px);
+    }
+
+    .cookie-modal-footer {
+      padding: 20px 25px;
+      border-top: 1px solid #e9ecef;
+      display: flex;
+      gap: 15px;
+      justify-content: flex-end;
+    }
+
+    @media (max-width: 768px) {
+      .cookie-modal-content {
+        margin: 2% auto;
+        width: 95%;
+        max-height: 90vh;
+      }
+
+      .cookie-modal-header {
+        padding: 15px 20px;
+      }
+
+      .cookie-modal-body {
+        padding: 20px;
+      }
+
+      .cookie-modal-footer {
+        padding: 15px 20px;
+        flex-direction: column;
+      }
+
+      .cookie-category-header {
+        align-items: center;
+        gap: 12px;
+      }
+
+      .cookie-category-info {
+        flex: 1;
+      }
+
+      .cookie-category-info h4 {
+        margin-bottom: 4px;
+        font-size: 1rem;
+      }
+
+      .cookie-category-info p {
+        font-size: 0.85rem;
+        line-height: 1.3;
+      }
+
+      .cookie-switch {
+        width: 45px;
+        height: 22px;
+      }
+
+      .cookie-slider:before {
+        height: 16px;
+        width: 16px;
+        left: 3px;
+        bottom: 3px;
+      }
+
+      input:checked+.cookie-slider:before {
+        transform: translateX(22px);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .cookie-consent {
+        padding: 15px;
+      }
+
+      .cookie-consent-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .cookie-consent-buttons {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .cookie-btn {
+        flex: 1;
+        min-width: 120px;
+      }
+    }
+
+    /* SME Section Styles */
+    .sme-section {
+      padding: 5rem 0;
+      background-color: #f9f9f9;
+    }
+
+    .sme-section h2 {
+      color: var(--primary-color);
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .sme-section .lead {
+      color: #555;
+      font-size: 1.2rem;
+    }
+
+    .sme-card {
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      text-align: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      height: 100%;
+    }
+
+    .sme-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .sme-card i {
+      font-size: 3rem;
+      color: var(--accent-color);
+      margin-bottom: 1.5rem;
+    }
+
+    .sme-card h4 {
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+
+    .sme-card p {
+      color: #666;
+      line-height: 1.6;
+      margin: 0;
+    }
+  </style>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-30GRQXD0XM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'G-30GRQXD0XM');
+</script>
+
+<body>
+
+  <div id="preloader-container"> <!-- Added a wrapper container -->
+    <div id="particles-background" class="vertical-centered-box"></div>
+    <div id="particles-foreground" class="vertical-centered-box"></div>
+
+    <div class="vertical-centered-box">
+      <div class="content">
+        <div class="loader-circle"></div>
+        <div class="loader-line-mask">
+          <div class="loader-line"></div>
+        </div>
+        <!-- You can keep or remove this SVG. If keeping, ensure the path is correct or modify it -->
+        <img src="./earth.png" class="earth-img" alt="Earth"
+          style="width: 100px; height: 100px; position: relative; z-index: 1;">
+      </div>
+    </div>
+  </div>
+  <!-- END: New Preloader HTML -->
+
+  <!-- Cookie Consent Banner -->
+  <div class="cookie-consent" id="cookieConsent">
+    <div class="cookie-consent-content">
+      <div class="cookie-consent-text">
+        <p>
+          <strong>🍪 We use cookies</strong><br>
+          We use cookies to enhance your browsing experience, analyze site traffic, and provide personalized content.
+          You can manage your cookie preferences or accept all cookies. <br>
+          <a href="privacy-policy.html" target="_blank">View our Cookie Policy for more info.</a>
+        </p>
+      </div>
+      <div class="cookie-consent-buttons">
+        <button class="cookie-btn cookie-btn-manage" onclick="openCookieManager()">Manage Cookies</button>
+        <button class="cookie-btn cookie-btn-accept" onclick="handleCookieConsent('all')">Accept All</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cookie Management Modal -->
+  <div class="cookie-modal" id="cookieModal">
+    <div class="cookie-modal-content">
+      <div class="cookie-modal-header">
+        <h3>🍪 Cookie Preferences</h3>
+        <button class="cookie-modal-close" onclick="closeCookieManager()">&times;</button>
+      </div>
+      <div class="cookie-modal-body">
+        <p>Customize your cookie settings below. Essential cookies are required for the website to function properly.
+        </p>
+
+        <div class="cookie-category">
+          <div class="cookie-category-header">
+            <label class="cookie-switch">
+              <input type="checkbox" id="essentialCookies" checked disabled>
+              <span class="cookie-slider essential"></span>
+            </label>
+            <div class="cookie-category-info">
+              <h4>Essential Cookies <span class="required-badge">Required</span></h4>
+              <p>These cookies are necessary for the website to function and cannot be disabled.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="cookie-category">
+          <div class="cookie-category-header">
+            <label class="cookie-switch">
+              <input type="checkbox" id="analyticsCookies" checked>
+              <span class="cookie-slider"></span>
+            </label>
+            <div class="cookie-category-info">
+              <h4>Analytics Cookies</h4>
+              <p>Help us understand how visitors interact with our website by collecting and reporting information
+                anonymously.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="cookie-category">
+          <div class="cookie-category-header">
+            <label class="cookie-switch">
+              <input type="checkbox" id="functionalCookies">
+              <span class="cookie-slider"></span>
+            </label>
+            <div class="cookie-category-info">
+              <h4>Functional Cookies</h4>
+              <p>Enable enhanced functionality and personalization, such as remembering your preferences.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="cookie-category">
+          <div class="cookie-category-header">
+            <label class="cookie-switch">
+              <input type="checkbox" id="marketingCookies">
+              <span class="cookie-slider"></span>
+            </label>
+            <div class="cookie-category-info">
+              <h4>Marketing Cookies</h4>
+              <p>Used to track visitors across websites to display relevant advertisements.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cookie-modal-footer">
+        <button class="cookie-btn cookie-btn-decline" onclick="handleCookieConsent('essential')">Accept Essential
+          Only</button>
+        <button class="cookie-btn cookie-btn-accept" onclick="handleCookieConsent('selected')">Save Preferences</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a href="#home"> <!-- Replace 'index.html' with your home page URL -->
+        <img src="./assets/logo_with_globe.png" class="logo" alt="Anurag Sharma Logo" />
+      </a> <a class="navbar-brand" href="#"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#expertise">Expertise</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./publications.html">Publications</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="subject-matter-knowledge.html">Subject Matter Knowledge</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="conferences-delegations.html">Conferences</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#workedwith">Engagements</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+          <li class="nav-item nav-item-button">
+            <a class="btn btn-primary" href="booksession.html">Book a Session</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="row align-items-center">
+
+        <!-- Left Side: Profile Image -->
+        <div class="col-lg-5 mb-4 mb-lg-0">
+          <div class="about-img">
+            <img src="./assets/anurag.jpg" alt="Anurag Sharma" class="img-fluid rounded shadow" />
+          </div>
+        </div>
+
+        <!-- Right Side: Content -->
+        <div class="col-lg-7 hero-text-container">
+          <div class="hero-content text-white">
+            <h1 class="mb-2">Anurag Sharma</h1>
+            <h3 class="mb-3" style="color:var(--accent-color)">
+              Founder and Director<br>
+              <span style="font-size:0.85em;">
+                Space Affairs Consultancy for Advanced Research - SACAR Private Limited
+              </span>
+            </h3>
+            <a href="./booksession.html" class="btn btn-primary mt-3">Book a Session</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- About Anurag Sharma Section -->
+  <section class="about-section" id="about">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 mx-auto">
+          <h2 class="text-left mb-5">About <span style="white-space: nowrap;">Anurag Sharma</span></h2>
+          <p class="lead">
+            Anurag Sharma is the Founder Director of the Space Affairs Consultancy for Advanced Research - SACAR Private
+            Limited. He also serves as the company’s Principal Space Diplomacy Consultant and Advisor. He is a dynamic
+            Track-2 Diplomat and Engineer, specialized in Defence and National Security with a strong focus on Space
+            Power and Critical & Emerging Technologies. His work provides a sophisticated analysis of multi-regional
+            dynamics and the critical roles of Technology and Economic Diplomacy within an increasingly multipolar world
+            order. His academic foundation is uniquely dual-disciplinary, holding an M.A. in Diplomacy, Law, and
+            Business from O.P. Jindal Global University and a B.Tech in Mechanical Engineering from Dayalbagh
+            Educational Institute.
+          </p>
+          <p class="lead">
+            With over a decade of academic and professional experience, Anurag has cultivated a versatile career through
+            roles ranging from Design Engineer and Quality Assurance to Research Analyst, Editor, Consultant and
+            Strategic Advisor. This multidisciplinary background—spanning Engineering, Diplomacy, Governance,
+            Literature, and the Arts—enables him to apply a nuanced, holistic approach to analyzing global shifts and
+            transformations. A <a href="subject-matter-knowledge.html#languages" class="highlight-text"
+              style="cursor: pointer; text-decoration: none;">polyglot<sup><i class="fas fa-external-link-alt"
+                  style="font-size: 0.75em; margin-left: 4px; color: var(--accent-color);"></i></sup></a>
+            and numismatist, he also maintains a deep intellectual interest in Brain and Consciousness studies, bringing
+            a rare level of depth, versatility, and openness to his analytical perspective.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Expertise Section -->
+  <section class="expertise-section" id="expertise">
+    <div class="container">
+      <h2>Areas of Expertise</h2>
+
+      <!-- Simple Tab Navigation -->
+      <div class="expertise-tabs" style="text-align: center; margin-bottom: 2rem;">
+        <button id="tab-strategic" class="tab-button active"
+          style="background-color: var(--primary-color); color: white; border: none; padding: 8px 20px; margin: 0 5px; border-radius: 5px; cursor: pointer;">Domains</button>
+        <button id="tab-regional" class="tab-button"
+          style="background-color: rgba(255, 255, 255, 0.2); color: white; border: none; padding: 8px 20px; margin: 0 5px; border-radius: 5px; cursor: pointer;">Regions</button>
+      </div>
+
+      <div class="tab-indicator-container" id="tabIndicator">
+        <div class="tab-indicator">
+          <i class="fas fa-hand-pointer"></i>
+          <span class="indicator-text">Switch Tabs</span>
+        </div>
+      </div>
+
+      <!-- Strategic Domains Tab Content -->
+      <div id="strategic-content" class="tab-content active">
+        <div class="row">
+          <div class="col-md-4 mb-4">
+            <div class="expertise-card">
+              <i class="fa-solid fa-handshake"></i>
+              <h3>Technology Diplomacy</h3>
+              <p>
+                It is a discipline that examines the impact of critical and emerging technologies on global trade,
+                international relations, domestic policy, commercial activities, human activities, and society at large.
+              </p>
+              <br> <a href="./technology-diplomacy.html" class="explore-link">Explore more</a>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="expertise-card">
+              <i class="fas fa-rocket"></i>
+              <h3>Space Power</h3>
+              <p>
+                "Space power" refers to the ability to use space for strategic, military, economic, and scientific
+                purposes, as well as the broader implications of space capabilities for national intrest and
+                international relations.
+              </p>
+              <a href="./space-power.html" class="explore-link">Explore more</a>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="expertise-card">
+              <i class="fa-solid fa-chart-simple"></i>
+              <h3>Economy Diplomacy</h3>
+              <p>
+                Economic diplomacy involves using a country's economic tools and resources to promote its national
+                interests and foreign policy objectives, encompassing trade, investment, aid, and tariffs.
+              </p>
+              <a href="./economic-diplomacy.html" class="explore-link">Explore more</a>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="expertise-card">
+              <i class="fas fa-shield-alt"></i>
+              <h3>Defence</h3>
+              <p>
+                Encompass a nation's efforts to protect its citizens, economy, and institutions from various threats,
+                including military, economic, and social factors, safeguarding territorial integrity against external
+                threats.
+              </p>
+              <a href="./defence.html" class="explore-link">Explore more</a>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="expertise-card">
+              <i class="fas fa-earth"></i>
+              <h3>Multipolar World Order</h3>
+              <p>
+                Multipolar world order involves multiple contenders capable of shaping the world order, fostering
+                legitimacy and consensus and maintaining that order.
+              </p>
+              <a href="./multipolar.html" class="explore-link">Explore more</a>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="expertise-card">
+              <i class="fas fa-balance-scale"></i>
+              <h3>Comprehensive National Power</h3>
+              <p>
+                CNP may be simply defined as the comprehensive capabilities of a country to pursue its strategic
+                objectives by taking actions internationally, using its overall resources.
+              </p><br>
+              <a href="./comprehensive.html" class="explore-link">Explore more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Regional Focus Tab Content -->
+      <div id="regional-content" class="tab-content" style="display: none;">
+        <div class="row">
+          <div class="col-md-4 mb-4">
+            <div class="expertise-card">
+              <i class="fas fa-user-astronaut"></i>
+              <h3>Outer Space</h3>
+              <p>
+                Outer Space: Outer space is the area beyond a planet's atmosphere, where the Earth's atmosphere
+                gradually thins and eventually becomes a near-vacuum.
+              </p>
+              <a href="./outer-space.html" class="explore-link">Explore more</a>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="expertise-card">
+              <i class="fas fa-globe-asia"></i>
+              <h3>Rimland</h3>
+              <p>
+                Rimland refers to the coastal periphery of Eurasia, an intermediate region between the
+                "Heartland" (the Eurasian landmass) and the marginal sea powers.
+              </p>
+              <a href="./rimland.html" class="explore-link">Explore more</a>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="expertise-card">
+              <i class="fas fa-snowflake"></i>
+              <h3>Antarctic</h3>
+              <p>
+                The Antarctic region, as defined by the Antarctic Treaty System, encompasses all land and ice shelves
+                south of 60° S latitude, including the continent of Antarctica and certain island territories, but
+                excluding the Antarctic Convergence.
+              </p><br>
+              <a href="./antarctic.html" class="explore-link">Explore more</a>
+            </div>
+          </div>
+
+          <div class="col-md-4 mb-4">
+            <div class="expertise-card">
+              <i class="fa-solid fa-mountain-sun"></i>
+              <h3>Himalayas</h3>
+              <p>
+                Himalayas: Himalayas are a great mountain system of Asia forming a barrier between the Plateau of Tibet
+                to the north and the alluvial plains of the Indian subcontinent to the South.
+              </p>
+              <a href="./himalayas.html" class="explore-link">Explore more</a>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="expertise-card">
+              <i class="fas fa-water"></i>
+              <h3>Deep Sea</h3>
+              <p>
+                The deep sea, also known as the abyssal zone, is the ocean region below 200 meters (656 feet) where
+                light ceases to penetrate, resulting in darkness, extreme pressure, and cold temperatures, yet supports
+                a unique and diverse ecosystem.
+              </p>
+              <a href="./deep-sea.html" class="explore-link">Explore more</a>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="expertise-card">
+              <i class="fas fa-igloo"></i>
+              <h3>Arctic</h3>
+              <p>
+                The Arctic region, often defined as the area north of the Arctic Circle (approximately 66°34' N),
+                encompasses the northernmost territories of eight states: Canada, Denmark/Greenland, Finland, Iceland,
+                Norway, Russia, Sweden, and the United States.
+              </p><br>
+              <a href="./arctic.html" class="explore-link">Explore more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Companies Slider Section -->
+  <section class="companies-section py-5" id="workedwith">
+    <div class="container">
+      <h2 class="text-center mb-4">Worked With</h2>
+      <div class="companies-slider-container">
+        <div class="companies-slider">
+          <!-- First set of logos -->
+          <div class="company-logo" data-company="borderman">
+            <img src="./assets/borderman.jpg" alt="Borderman" />
+          </div>
+          <div class="company-logo" data-company="embassy">
+            <img src="./assets/embassy.jpeg" alt="Embassy" />
+          </div>
+          <div class="company-logo" data-company="samvada">
+            <img src="./assets/samvada.jpeg" alt="Samvada" />
+          </div>
+          <div class="company-logo" data-company="coneast">
+            <img src="./assets/coneast.png" alt="Coneast" />
+          </div>
+          <div class="company-logo" data-company="cprg">
+            <img src="./assets/cprg-3.png" alt="CPRG" />
+          </div>
+          <div class="company-logo" data-company="eicbi">
+            <img src="./assets/eicbi.png" alt="EICBI" />
+          </div>
+          <div class="company-logo" data-company="cnh">
+            <img src="./assets/cnh.jpeg" alt="CNH" />
+          </div>
+          <div class="company-logo" data-company="sonalika">
+            <img src="./assets/sonalika.jpeg" alt="Sonalika" />
+          </div>
+
+          <!-- Second set - duplicate for seamless loop -->
+          <div class="company-logo" data-company="borderman">
+            <img src="./assets/borderman.jpg" alt="Borderman" />
+          </div>
+          <div class="company-logo" data-company="embassy">
+            <img src="./assets/embassy.jpeg" alt="Embassy" />
+          </div>
+          <div class="company-logo" data-company="samvada">
+            <img src="./assets/samvada.jpeg" alt="Samvada" />
+          </div>
+          <div class="company-logo" data-company="coneast">
+            <img src="./assets/coneast.png" alt="Coneast" />
+          </div>
+          <div class="company-logo" data-company="cprg">
+            <img src="./assets/cprg-3.png" alt="CPRG" />
+          </div>
+          <div class="company-logo" data-company="eicbi">
+            <img src="./assets/eicbi.png" alt="EICBI" />
+          </div>
+          <div class="company-logo" data-company="cnh">
+            <img src="./assets/cnh.jpeg" alt="CNH" />
+          </div>
+          <div class="company-logo" data-company="sonalika">
+            <img src="./assets/sonalika.jpeg" alt="Sonalika" />
+          </div>
+
+          <!-- Third set - additional duplicate for truly endless scroll -->
+          <div class="company-logo" data-company="borderman">
+            <img src="./assets/borderman.jpg" alt="Borderman" />
+          </div>
+          <div class="company-logo" data-company="embassy">
+            <img src="./assets/embassy.jpeg" alt="Embassy" />
+          </div>
+          <div class="company-logo" data-company="samvada">
+            <img src="./assets/samvada.jpeg" alt="Samvada" />
+          </div>
+          <div class="company-logo" data-company="coneast">
+            <img src="./assets/coneast.png" alt="Coneast" />
+          </div>
+          <div class="company-logo" data-company="cprg">
+            <img src="./assets/cprg-3.png" alt="CPRG" />
+          </div>
+          <div class="company-logo" data-company="eicbi">
+            <img src="./assets/eicbi.png" alt="EICBI" />
+          </div>
+          <div class="company-logo" data-company="cnh">
+            <img src="./assets/cnh.jpeg" alt="CNH" />
+          </div>
+          <div class="company-logo" data-company="sonalika">
+            <img src="./assets/sonalika.jpeg" alt="Sonalika" />
+          </div>
+
+          <!-- Fourth set - even more for wider screens -->
+          <div class="company-logo" data-company="borderman">
+            <img src="./assets/borderman.jpg" alt="Borderman" />
+          </div>
+          <div class="company-logo" data-company="embassy">
+            <img src="./assets/embassy.jpeg" alt="Embassy" />
+          </div>
+          <div class="company-logo" data-company="samvada">
+            <img src="./assets/samvada.jpeg" alt="Samvada" />
+          </div>
+          <div class="company-logo" data-company="coneast">
+            <img src="./assets/coneast.png" alt="Coneast" />
+          </div>
+          <div class="company-logo" data-company="cprg">
+            <img src="./assets/cprg-3.png" alt="CPRG" />
+          </div>
+          <div class="company-logo" data-company="eicbi">
+            <img src="./assets/eicbi.png" alt="EICBI" />
+          </div>
+          <div class="company-logo" data-company="cnh">
+            <img src="./assets/cnh.jpeg" alt="CNH" />
+          </div>
+          <div class="company-logo" data-company="sonalika">
+            <img src="./assets/sonalika.jpeg" alt="Sonalika" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Popup Overlay -->
+    <div class="company-popup-overlay">
+      <div class="company-popup">
+        <div class="popup-close"></div>
+        <div class="popup-content">
+          <div class="popup-logo">
+            <img src="" alt="Company Logo" />
+          </div>
+          <div class="popup-description">
+            <h3></h3>
+            <p></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Publications Section -->
+  <section class="publications-section" id="publications">
+    <div class="container">
+      <h2 class="text-center mb-5">Recent Publications</h2>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="publication-card">
+            <h3>
+              Drawing the New Iron Curtain in the Final Frontier of Space
+            </h3>
+            <p class="journal">Issue Brief (Sharp Scope Volume 1, Number 2)</p>
+            <p class="journal">Samvada World (Bangalore), 2024</p>
+            <p>
+              This paper examines the limitations of the 1967 Outer Space
+              Treaty in addressing contemporary challenges and proposed
+              adaptations.
+            </p>
+            <a href="https://theanuragsharma.com/assets/Sharp-Scope-Vol-1-No-2-Drawing-the-new-Iron-Curtain-in-the-Final-Frontier-of-Space.pdf"
+              class="btn btn-sm btn-outline-primary" target="_blank">Read More</a>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="publication-card">
+            <h3>
+              Europe-India Space Cooperation: A Comprehensive Study of 100- year Engagement and Beyond
+            </h3>
+            <p class="journal">Research Paper</p>
+            <p class="journal">Europe India Center for Business and Industires, (Kochi, India), 2024</p>
+            <p>
+              An analysis of ethical considerations in lunar mining and
+              resource extraction, with proposed guidelines for sustainable
+              practices.
+            </p>
+            <a href="https://www.eicbi.org/post/europe-india-space-cooperation-a-comprehensive-study-of-100-year-engagement-and-beyond"
+              class="btn btn-sm btn-outline-primary">Read More</a>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="publication-card">
+            <h3>
+              Technology Diplomacy in India Taiwan Ties
+            </h3>
+            <p class="journal">Newsletter Article
+              (Formosa Watch)</p>
+            <p class="journal">Center for North East Asian Studies
+              (New Delhi, India), 2024</p>
+            <p>
+              This research examines the unprecedented deployment of satellite
+              constellations and proposes regulatory frameworks to address
+              space traffic management and orbital debris mitigation.
+            </p>
+            <a href="https://jgu.s3.ap-south-1.amazonaws.com/jsia/Formosa+Watch+Newsletter.pdf"
+              class="btn btn-sm btn-outline-primary">Read More</a>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="publication-card">
+            <h3>
+              Missile Diplomacy of North Korea and the Messaging behind the Tests: A Larger Geopolitical Game of
+              Provocation, Reaction and Counter-response
+            </h3>
+            <p class="journal">Newsletter Article
+              (Seasang: Exploring the Koreas)</p>
+            <p>
+            <p class="journal">Center for North East Asian Studies
+              (New Delhi, India), 2023
+            </p>
+            An analysis of how space-based technologies can contribute to
+            climate change mitigation and adaptation, with recommendations
+            for policy.
+            </p>
+            <a href="https://jgu.s3.ap-south-1.amazonaws.com/jsia/Korea+Newsletter_CNEAS2.pdf"
+              class="btn btn-sm btn-outline-primary">Read More</a>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <a href="./publications.html" class="btn btn-primary">View All Publications</a>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Contact Section -->
+  <section class="contact-section-simple" id="contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 mx-auto text-center">
+          <h2 class="section-title">Get in Touch</h2>
+          <p class="contact-message">Let's connect and explore how I can help you.</p>
+
+          <div class="contact-buttons">
+            <a href="./booksession.html" class="btn-accent">Book a Session</a>
+            <a href="mailto:s-anurag@hotmail.com" class="btn-outline">Send Email</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <!-- <div class="col-md-6 text-center text-md-start mb-3 mb-md-0"> -->
+        <div class="col-12 text-center mb-3 mb-md-0">
+          <p>&copy; 2026 Anurag Sharma. All Rights Reserved. | <a href="privacy-policy.html"
+              style="color: var(--accent-color); text-decoration: none;">Privacy & Cookie Policy</a></p>
+        </div>
+        <!-- <div class="col-md-6 text-center text-md-end">
+          <div class="social-links">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-researchgate"></i></a>
+            <a href="#"><i class="fab fa-orcid"></i></a>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <a href="#home" id="back-to-top" class="btn btn-primary back-to-top position-fixed bottom-0 end-0 m-4 rounded-circle"
+    style="
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0.7;
+        display: none;
+      ">
+    <i class="fas fa-rocket" style="transform: rotate(-45deg);"></i>
+  </a>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <script type="module" src="./js/script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Subject Matter Knowledge - Subject Matter Knowledge - Anurag Sharma</title>
+  <link rel="icon" type="image/x-icon" href="./assets/logo-for-title.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <style>
+    /* Increased navbar link spacing on desktop */
+    @media (min-width: 992px) {
+      .navbar-nav .nav-item {
+        margin-left: 8px;
+        margin-right: 8px;
+      }
+      
+      .navbar-nav .nav-item:first-child {
+        margin-left: 0;
+      }
+    }
+    
+    /* Additional styles for expertise detail pages */
+    .expertise-header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 8rem 0 3rem;
+      position: relative;
+      border-radius: 15px;
+    }
+
+    .expertise-header .icon {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .expertise-header {
+        padding: 6rem 0 2rem;
+        border-radius: 15px;
+      }
+      .expertise-header .icon {
+        font-size: 2.5rem;
+        display: block;
+      }
+      .expertise-header h1 {
+        font-size: 1.8rem;
+      }
+      .expertise-header .lead {
+        font-size: 0.95rem;
+        padding: 0 15px;
+      }
+    }
+
+    .content-section {
+      padding: 2rem 0;
+    }
+
+    .light-section {
+      background-color: #f9f9f9;
+    }
+
+    .expertise-area-detail {
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+
+    .expertise-area-detail:hover {
+      box-shadow: none;
+      transform: none;
+    }
+
+    .expertise-area-detail h3 {
+      color: var(--primary-color);
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .expertise-area-detail h3 i {
+      font-size: 2rem;
+      color: var(--accent-color);
+    }
+
+    .expertise-area-detail p {
+      color: #333;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 15px;
+    }
+
+    .expertise-area-detail ul {
+      color: #555;
+      padding-left: 20px;
+    }
+
+    .expertise-area-detail ul li {
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+
+    .services-offered {
+      background-color: #f9f9f9;
+      padding: 4rem 0;
+    }
+
+    .services-offered h2 {
+      color: var(--primary-color);
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2.5rem;
+    }
+
+    .service-item {
+      background: white;
+      border-radius: 10px;
+      padding: 25px;
+      margin-bottom: 20px;
+      border-left: 4px solid var(--accent-color);
+      transition: all 0.3s ease;
+      height: 100%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .service-item:hover {
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      transform: translateX(5px);
+    }
+
+    .service-item h4 {
+      color: var(--primary-color);
+      margin-bottom: 15px;
+      font-size: 1.4rem;
+    }
+
+    .service-item h4 i {
+      color: var(--accent-color);
+      margin-right: 10px;
+    }
+
+    .service-item p {
+      color: #555;
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    .call-to-action {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 3rem 0;
+      text-align: center;
+    }
+
+    .call-to-action h3 {
+      margin-bottom: 1rem;
+    }
+
+    .call-to-action p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding-top: 50px;
+      }
+      
+      .expertise-area-detail {
+        padding: 15px;
+      }
+      
+      .languages-scroll-container {
+        margin: 0 -15px !important;
+        padding: 0 15px 10px 15px !important;
+        box-shadow: inset -10px 0 10px -10px rgba(0,0,0,0.1);
+      }
+      
+      .languages-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 8px !important;
+        min-width: 350px !important;
+        max-width: 350px !important;
+        margin: 0 !important;
+      }
+      
+      .languages-grid .language-item:nth-child(1) { order: 1; }
+      .languages-grid .language-item:nth-child(2) { order: 2; }
+      .languages-grid .language-item:nth-child(3) { order: 3; }
+      .languages-grid .language-item:nth-child(4) { order: 4; }
+      .languages-grid .language-item:nth-child(5) { order: 5; }
+      .languages-grid .language-item:nth-child(6) { order: 6; }
+      .languages-grid .language-item:nth-child(7) { order: 7; }
+      .languages-grid .language-item:nth-child(8) { order: 8; }
+      .languages-grid .language-item:nth-child(9) { order: 9; }
+      
+      .language-item {
+        padding: 12px !important;
+        font-size: 0.9rem;
+      }
+      
+      .language-item h5 {
+        font-size: 1rem !important;
+        margin: 0 !important;
+      }
+      
+      .content-section {
+        padding: 2rem 0;
+      }
+      
+      .content-section h2 {
+        font-size: 2rem !important;
+        margin-bottom: 1rem !important;
+      }
+      
+      .expertise-header h1 {
+        font-size: 1.8rem !important;
+      }
+      
+      .expertise-header .lead {
+        font-size: 0.95rem !important;
+        padding: 0 15px;
+      }
+    }
+
+    /* Timeline Styles */
+    .timeline-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px 10px;
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px 0;
+      min-height: 600px;
+    }
+
+    .timeline::after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: linear-gradient(to bottom, var(--primary-color), var(--accent-color));
+      transform: translateX(-50%);
+      z-index: 0;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 40px;
+      width: 50%;
+      clear: both;
+      display: flex;
+      align-items: center;
+    }
+
+    .timeline-content {
+      background: transparent;
+      padding: 0;
+      border-radius: 0;
+      box-shadow: none;
+      position: relative;
+      display: inline-block;
+      z-index: 1;
+    }
+
+    .timeline-content:hover {
+      transform: none;
+      box-shadow: none;
+    }
+
+    .timeline-circle {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      z-index: 3;
+    }
+
+    .timeline-item.left {
+      float: left;
+      justify-content: flex-end;
+      padding-right: 60px;
+    }
+
+    .timeline-item.left .timeline-circle {
+      right: -69px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .timeline-item.right {
+      float: right;
+      justify-content: flex-start;
+      padding-left: 60px;
+    }
+
+    .timeline-item.right .timeline-circle {
+      left: -69px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .timeline-circle.blue {
+      background-color: var(--primary-color);
+      box-shadow: 0 0 0 4px white, 0 0 0 6px var(--primary-color);
+    }
+
+    .timeline-circle.orange {
+      background-color: var(--accent-color);
+      box-shadow: 0 0 0 4px white, 0 0 0 6px var(--accent-color);
+    }
+    
+    /* Group 1: Foundational IR - Deep Blue */
+    .timeline-circle.group1 {
+      background-color: #0B3D91;
+      box-shadow: 0 0 0 4px white, 0 0 0 6px #0B3D91;
+    }
+    
+    /* Group 2: Security & Strategic Affairs - Teal */
+    .timeline-circle.group2 {
+      background-color: #008B8B;
+      box-shadow: 0 0 0 4px white, 0 0 0 6px #008B8B;
+    }
+    
+    /* Group 3: Regional Politics - Purple */
+    .timeline-circle.group3 {
+      background-color: #6A0DAD;
+      box-shadow: 0 0 0 4px white, 0 0 0 6px #6A0DAD;
+    }
+    
+    /* Group 4: Economic & Risk - Orange Red */
+    .timeline-circle.group4 {
+      background-color: #FF4500;
+      box-shadow: 0 0 0 4px white, 0 0 0 6px #FF4500;
+    }
+    
+    /* Group 5: Para-Diplomacy - Green */
+    .timeline-circle.group5 {
+      background-color: #228B22;
+      box-shadow: 0 0 0 4px white, 0 0 0 6px #228B22;
+    }
+    
+    /* Group 6: Sports & IR - Magenta */
+    .timeline-circle.group6 {
+      background-color: #C71585;
+      box-shadow: 0 0 0 4px white, 0 0 0 6px #C71585;
+    }
+    
+    /* Gradient for Europe in Indo-Pacific: Teal to Purple */
+    .timeline-circle.gradient-teal-purple {
+      background: linear-gradient(135deg, #008B8B 0%, #6A0DAD 100%);
+      box-shadow: 0 0 0 4px white, 0 0 0 6px #4a4d9e;
+    }
+
+    .timeline-content h4 {
+      margin: 0;
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: #333;
+      line-height: 1.5;
+      padding: 8px 15px;
+    }
+
+    @media (max-width: 768px) {
+      .timeline {
+        padding-left: 10px;
+        min-height: 400px;
+      }
+
+      .timeline::before {
+        left: 20px;
+      }
+      
+      .timeline-item {
+        width: 100%;
+        float: none;
+        padding-left: 35px;
+        padding-right: 15px;
+        justify-content: flex-start;
+        margin-bottom: 30px;
+      }
+      
+      .timeline-item.left,
+      .timeline-item.right {
+        padding-left: 35px;
+        padding-right: 15px;
+        justify-content: flex-start;
+      }
+      
+      .timeline-item.left .timeline-circle,
+      .timeline-item.right .timeline-circle {
+        left: -35px;
+        right: auto;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      
+      .timeline-content {
+        padding: 0;
+      }
+      
+      .timeline-content h4 {
+        font-size: 0.95rem;
+        padding: 5px 10px;
+        line-height: 1.4;
+      }
+
+      .languages-description {
+        text-align: left !important;
+        font-size: 1rem !important;
+        padding: 0 10px;
+      }
+    }
+  </style>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-30GRQXD0XM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-30GRQXD0XM');
+</script>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a href="index.html">
+        <img src="./assets/logo_with_globe.png" class="logo" alt="Anurag Sharma Logo" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#expertise">Expertise</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="publications.html">Publications</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="subject-matter-knowledge.html">Subject Matter Knowledge</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="conferences-delegations.html">Conferences</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#workedwith">Engagements</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#contact">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-primary" href="booksession.html" style="margin-left: 10px;">Book a Session</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header Section -->
+  <header class="expertise-header">
+    <div class="container">
+      <div class="text-center">
+        <i class="fas fa-graduation-cap icon"></i>
+        <h1>Subject Matter Knowledge</h1>
+        <p class="lead">Deep expertise across multiple domains, backed by continuous learning and professional certifications</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Subject Matter Knowledge Section -->
+  <section class="content-section">
+    <div class="container">
+      <h2 style="text-align: center; margin-bottom: 1.5rem; color: var(--primary-color); font-size: 2.5rem;">
+        <i class="fas fa-book-open"></i> Key Subject Areas
+      </h2>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="timeline-container" style="max-width: 900px; margin: 0 auto; padding: 20px 10px;">
+            <div class="timeline">
+              <!-- Timeline line -->
+              <div class="timeline-line"></div>
+              
+              <!-- Timeline items -->
+              <div class="timeline-item left">
+                <div class="timeline-content">
+                  <div class="timeline-circle group1"></div>
+                  <h4>International Relations Theories and Praxis</h4>
+                </div>
+              </div>
+              
+              <div class="timeline-item left">
+                <div class="timeline-content">
+                  <div class="timeline-circle group1"></div>
+                  <h4>International Law</h4>
+                </div>
+              </div>
+              
+              <div class="timeline-item right">
+                <div class="timeline-content">
+                  <div class="timeline-circle group2"></div>
+                  <h4>National Security, Defence & Military Strategy</h4>
+                </div>
+              </div>
+              
+              <div class="timeline-item right">
+                <div class="timeline-content">
+                  <div class="timeline-circle group2"></div>
+                  <h4>Security Dynamics in Indo-Pacific</h4>
+                </div>
+              </div>
+              
+              <div class="timeline-item right">
+                <div class="timeline-content">
+                  <div class="timeline-circle gradient-teal-purple"></div>
+                  <h4>Europe in Indo-Pacific</h4>
+                </div>
+              </div>
+              
+              <div class="timeline-item left">
+                <div class="timeline-content">
+                  <div class="timeline-circle group3"></div>
+                  <h4>Mediterranean Politics</h4>
+                </div>
+              </div>
+              
+              <div class="timeline-item left">
+                <div class="timeline-content">
+                  <div class="timeline-circle group3"></div>
+                  <h4>Politics of Middle-East and North Africa</h4>
+                </div>
+              </div>
+              
+              <div class="timeline-item right">
+                <div class="timeline-content">
+                  <div class="timeline-circle group3"></div>
+                  <h4>Tibetans in India</h4>
+                </div>
+              </div>
+              
+              <div class="timeline-item right">
+                <div class="timeline-content">
+                  <div class="timeline-circle group4"></div>
+                  <h4>International Trade</h4>
+                </div>
+              </div>
+              
+              <div class="timeline-item right">
+                <div class="timeline-content">
+                  <div class="timeline-circle group4"></div>
+                  <h4>Political and Business Risk Management</h4>
+                </div>
+              </div>
+              
+              <div class="timeline-item left">
+                <div class="timeline-content">
+                  <div class="timeline-circle group5"></div>
+                  <h4>Para-Diplomacy</h4>
+                </div>
+              </div>
+              
+              <div class="timeline-item right">
+                <div class="timeline-content">
+                  <div class="timeline-circle group6"></div>
+                  <h4>Sports and International Relations</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications Section -->
+  <section class="content-section light-section">
+    <div class="container">
+      <h2 style="text-align: center; margin-bottom: 1.5rem; color: var(--primary-color); font-size: 2.5rem;">
+        <i class="fas fa-graduation-cap"></i> Professional Certifications
+      </h2>
+      <div class="row">
+        <div class="col-lg-12">
+          <div style="max-width: 800px; margin: 0 auto; padding: 10px;">
+            <ul style="list-style: none; padding: 0; font-size: 1.1rem; line-height: 1.8; color: #333;">
+              <li style="padding: 4px 0;">• Certificate Course on Emerging Technologies and Security</li>
+              <li style="padding: 4px 0;">• Capsule Course: Space Power</li>
+              <li style="padding: 4px 0;">• Capsule Course: Kashmir Shaivism</li>
+              <li style="padding: 4px 0;">• The Politics and Economics of International Trade in the 21st Century</li>
+              <li style="padding: 4px 0;">• National Service Scheme (NSS)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Languages Section -->
+  <section class="content-section" id="languages">
+    <div class="container">
+      <h2 style="text-align: center; margin-bottom: 1.5rem; color: var(--primary-color); font-size: 2.5rem;">
+        <i class="fas fa-language"></i> Languages
+      </h2>
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="expertise-area-detail" style="text-align: center; background: transparent; box-shadow: none;">
+            <p style="font-size: 1.2rem; margin-bottom: 30px; color: black;" class="languages-description">
+              As a polyglot with proficiency in multiple languages, I bring a unique perspective to cross-cultural communication and international engagement:
+            </p>
+            <div class="languages-scroll-container" style="overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 -20px; padding: 0 20px; position: relative;">
+              <div class="languages-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; max-width: 700px; margin: 0 auto; min-width: 600px;">
+              <div class="language-item" style="padding: 15px; background: transparent; border: 1px solid rgba(11, 61, 145, 0.2); border-radius: 8px; text-align: center; grid-column: 1; grid-row: 1; cursor: default;">
+                <h5 style="margin: 0; color: var(--primary-color);">English</h5>
+              </div>
+              <div class="language-item" style="padding: 15px; background: transparent; border: 1px solid rgba(11, 61, 145, 0.2); border-radius: 8px; text-align: center; grid-column: 2; grid-row: 1; cursor: default;">
+                <h5 style="margin: 0; color: var(--primary-color);">Russian</h5>
+              </div>
+              <div class="language-item" style="padding: 15px; background: transparent; border: 1px solid rgba(11, 61, 145, 0.2); border-radius: 8px; text-align: center; grid-column: 3; grid-row: 1; cursor: default;">
+                <h5 style="margin: 0; color: var(--primary-color);">Sanskrit</h5>
+              </div>
+              <div class="language-item" style="padding: 15px; background: transparent; border: 1px solid rgba(11, 61, 145, 0.2); border-radius: 8px; text-align: center; grid-column: 1; grid-row: 2; cursor: default;">
+                <h5 style="margin: 0; color: var(--primary-color);">German</h5>
+              </div>
+              <div class="language-item" style="padding: 15px; background: transparent; border: 1px solid rgba(11, 61, 145, 0.2); border-radius: 8px; text-align: center; grid-column: 2; grid-row: 2; cursor: default;">
+                <h5 style="margin: 0; color: var(--primary-color);">Arabic</h5>
+              </div>
+              <div class="language-item" style="padding: 15px; background: transparent; border: 1px solid rgba(11, 61, 145, 0.2); border-radius: 8px; text-align: center; grid-column: 3; grid-row: 2; cursor: default;">
+                <h5 style="margin: 0; color: var(--primary-color);">Punjabi</h5>
+              </div>
+              <div class="language-item" style="padding: 15px; background: transparent; border: 1px solid rgba(11, 61, 145, 0.2); border-radius: 8px; text-align: center; grid-column: 1; grid-row: 3; cursor: default;">
+                <h5 style="margin: 0; color: var(--primary-color);">French</h5>
+              </div>
+              <div class="language-item" style="padding: 15px; background: transparent; border: 1px solid rgba(11, 61, 145, 0.2); border-radius: 8px; text-align: center; grid-column: 2; grid-row: 3; cursor: default;">
+                <h5 style="margin: 0; color: var(--primary-color);">Hindi</h5>
+              </div>
+              <div class="language-item" style="padding: 15px; background: transparent; border: 1px solid rgba(11, 61, 145, 0.2); border-radius: 8px; text-align: center; grid-column: 3; grid-row: 3; cursor: default;">
+                <h5 style="margin: 0; color: var(--primary-color);">Urdu</h5>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="call-to-action">
+    <div class="container">
+      <h3>Ready to Collaborate?</h3>
+      <p>Schedule a consultation session to discuss your strategic needs and explore how my expertise can support your objectives.</p>
+      <a href="booksession.html" class="btn btn-primary btn-lg">
+        <i class="fas fa-calendar-alt"></i> Book a Session Now
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center mb-3 mb-md-0">
+          <p>&copy; 2026 Anurag Sharma. All Rights Reserved. | <a href="privacy-policy.html" style="color: var(--accent-color); text-decoration: none;">Privacy & Cookie Policy</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <a href="#" id="back-to-top" class="btn btn-primary back-to-top position-fixed bottom-0 end-0 m-4 rounded-circle"
+    style="width: 50px; height: 50px; display: none; align-items: center; justify-content: center; opacity: 0.7;">
+    <i class="fas fa-rocket" style="transform: rotate(-45deg);"></i>
+  </a>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="./js/script.js"></script>
+  <script>
+    // Back to top button functionality
+    $(window).scroll(function () {
+      if ($(this).scrollTop() > 300) {
+        $('#back-to-top').fadeIn();
+      } else {
+        $('#back-to-top').fadeOut();
+      }
+    });
+
+    $('#back-to-top').click(function (e) {
+      e.preventDefault();
+      
+      // Add flying animation
+      $(this).css({
+        'transition': 'transform 0.6s ease-out, opacity 0.6s ease-out',
+        'transform': 'translateY(-100vh)',
+        'opacity': '0'
+      });
+      
+      // Scroll to top smoothly
+      $('html, body').animate({ scrollTop: 0 }, 600);
+      
+      // Reset button position after animation
+      setTimeout(() => {
+        $(this).css({
+          'transition': 'none',
+          'transform': 'translateY(0)',
+          'opacity': '0.7'
+        });
+      }, 600);
+      
+      return false;
+    });
+
+    // Navigation scroll behavior
+    $(window).scroll(function () {
+      if ($(window).scrollTop() > 50) {
+        $('.navbar').addClass('scrolled');
+      } else {
+        $('.navbar').removeClass('scrolled');
+      }
+    });
+
+    // Trigger scroll event on page load to set initial navbar state
+    $(window).trigger('scroll');
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Domain Name - Anurag Sharma</title>
+  <link rel="icon" type="image/x-icon" href="/assets/logo-for-title.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <style>
+    /* Increased navbar link spacing on desktop */
+    @media (min-width: 992px) {
+      .navbar-nav .nav-item {
+        margin-left: 8px;
+        margin-right: 8px;
+      }
+      
+      .navbar-nav .nav-item:first-child {
+        margin-left: 0;
+      }
+    }
+    
+    /* Additional styles for expertise detail pages */
+    .expertise-header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 8rem 0 3rem;
+      position: relative;      border-radius: 15px;    }
+
+    .expertise-header .icon {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .expertise-header {
+        padding: 6rem 0 2rem;
+        border-radius: 15px;
+      }
+      .expertise-header .icon {
+        font-size: 2.5rem;
+        display: block;
+      }
+      .expertise-header h1 {
+        font-size: 1.8rem;
+      }
+      .expertise-header .lead {
+        font-size: 0.95rem;
+        padding: 0 15px;
+      }
+    }
+
+    .content-section {
+      padding: 4rem 0;
+    }
+
+    .light-section {
+      background-color: #f9f9f9;
+    }
+
+    .key-points {
+      margin: 2rem 0;
+    }
+
+    .key-point {
+      display: flex;
+      margin-bottom: 1.5rem;
+      align-items: flex-start;
+    }
+
+    .key-point i {
+      color: var(--primary-color);
+      margin-right: 1rem;
+      font-size: 1.2rem;
+      margin-top: 0.2rem;
+    }
+
+    .related-publications {
+      margin-top: 2rem;
+    }
+
+    .publication-card {
+      margin-bottom: 1.5rem;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s;
+      height: 100%;
+      background-color: white;
+    }
+
+    .btn-light{
+      background-color: var(--accent-color);
+      color: #fff;
+    }
+
+    .publication-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .publication-card h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary-color);
+    }
+
+    .publication-card .journal {
+      font-style: italic;
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    .quote-section {
+      background-color: rgba(var(--primary-color-rgb), 0.05);
+      border-left: 4px solid var(--primary-color);
+      padding: 2rem;
+      margin: 2rem 0;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .quote-text {
+      font-style: italic;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    .quote-author {
+      font-weight: 600;
+      text-align: right;
+    }
+
+    .call-to-action {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 3rem 0;
+      text-align: center;
+    }
+
+    .call-to-action h3 {
+      margin-bottom: 1.5rem;
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 1200px;
+      margin: 3rem auto;
+    }
+
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 6px;
+      background-color: var(--primary-color);
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -3px;
+    }
+
+    .timeline-container {
+      padding: 10px 40px;
+      position: relative;
+      background-color: inherit;
+      width: 50%;
+    }
+
+    .timeline-container::after {
+      content: '';
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      right: -12px;
+      background-color: white;
+      border: 4px solid var(--primary-color);
+      top: 15px;
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    .left {
+      left: 0;
+    }
+
+    .right {
+      left: 50%;
+    }
+
+    .left::before {
+      content: '';
+      height: 0;
+      position: absolute;
+      top: 22px;
+      width: 0;
+      z-index: 1;
+      right: 30px;
+      border: medium solid var(--primary-color);
+      border-width: 10px 0 10px 10px;
+      border-color: transparent transparent transparent var(--primary-color);
+    }
+
+    .right::before {
+      content: '';
+      height: 0;
+      position: absolute;
+      top: 22px;
+      width: 0;
+      z-index: 1;
+      left: 30px;
+      border: medium solid var(--primary-color);
+      border-width: 10px 10px 10px 0;
+      border-color: transparent var(--primary-color) transparent transparent;
+    }
+
+    .right::after {
+      left: -12px;
+    }
+
+    .timeline-content {
+      padding: 20px 30px;
+      background-color: white;
+      position: relative;
+      border-radius: 6px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .timeline-year {
+      font-weight: bold;
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+    }
+
+    @media screen and (max-width: 768px) {
+      .timeline::after {
+        left: 31px;
+      }
+
+      .timeline-container {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+      }
+
+      .timeline-container::before {
+        left: 60px;
+        border: medium solid var(--primary-color);
+        border-width: 10px 10px 10px 0;
+        border-color: transparent var(--primary-color) transparent transparent;
+      }
+
+      .left::after, .right::after {
+        left: 18px;
+      }
+
+      .right {
+        left: 0%;
+      }
+    }
+
+    .back-link {
+      margin-bottom: 2rem;
+      display: inline-block;
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Mobile fix for content hidden behind header */
+    @media (max-width: 768px) {
+      body {
+        padding-top: 50px;
+      }
+    }
+  </style>
+</head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-30GRQXD0XM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-30GRQXD0XM');
+</script>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <img src="./assets/logo_with_globe.png" class="logo" />
+      <a class="navbar-brand" href="#"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html#expertise">Expertise</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#publications">Publications</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="subject-matter-knowledge.html">Subject Matter Knowledge</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="conferences-delegations.html">Conferences</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#workedwith">Engagements</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#contact">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-primary" href="booksession.html" style="margin-left: 10px;">Book a Session</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header Section -->
+  <header class="expertise-header">
+    <div class="container">
+      <div class="text-center">
+        <i class="fas fa-rocket icon"></i>
+        <h1>Space Power</h1>
+        <p class="lead">Understanding the strategic, military, economic, and scientific dimensions of space capabilities</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Overview Section -->
+  <!-- <section class="content-section">
+    <div class="container">
+      <a href="index.html#expertise" class="back-link"><i class="fas fa-arrow-left me-2"></i>Back to Expertise</a>
+      
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2>Overview</h2>
+          <p class="lead">Space power refers to the ability to use space for strategic, military, economic, and scientific purposes, as well as the broader implications of space capabilities for national interests and international relations.</p>
+          
+          <p>As nations continue to expand their presence in space, understanding the multifaceted nature of space power becomes increasingly important. Space power encompasses not only military and security dimensions but also economic opportunities, technological innovation, and international cooperation frameworks.</p>
+          
+          <div class="quote-section">
+            <p class="quote-text">"Space is not only a domain to be explored, but a critical domain that shapes geopolitical dynamics on Earth. The ability to access and utilize space has become a defining characteristic of national power in the 21st century."</p>
+            <p class="quote-author">— Anurag Sharma</p>
+          </div>
+          
+          <p>My research and advisory work in space power focuses on analyzing how nations develop, deploy, and leverage space capabilities to advance their strategic objectives. This includes examining space security frameworks, commercial space activities, international space governance, and the intersection of space with other domains such as cyber and maritime.</p>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- Key Points Section -->
+  <!-- <section class="content-section light-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2>Key Dimensions of Space Power</h2>
+          
+          <div class="key-points">
+            <div class="key-point">
+              <i class="fas fa-shield-alt"></i>
+              <div>
+                <h4>Military and Security</h4>
+                <p>Space-based assets provide critical capabilities for intelligence gathering, communication, navigation, and situational awareness. As space becomes increasingly congested and contested, nations are developing counterspace capabilities and space security doctrines.</p>
+              </div>
+            </div>
+            
+            <div class="key-point">
+              <i class="fas fa-globe"></i>
+              <div>
+                <h4>International Governance</h4>
+                <p>The legal and normative frameworks governing space activities, including the Outer Space Treaty, Registration Convention, and emerging norms of responsible behavior, shape how nations operate in space and manage potential conflicts.</p>
+              </div>
+            </div>
+            
+            <div class="key-point">
+              <i class="fas fa-chart-line"></i>
+              <div>
+                <h4>Economic Development</h4>
+                <p>Commercial space activities, including satellite services, launch capabilities, and emerging fields like space tourism and resource utilization, are creating new economic opportunities and reshaping international competition.</p>
+              </div>
+            </div>
+            
+            <div class="key-point">
+              <i class="fas fa-microscope"></i>
+              <div>
+                <h4>Scientific Exploration</h4>
+                <p>Scientific missions expand our understanding of the universe and demonstrate technological capabilities, often serving as instruments of soft power and international cooperation.</p>
+              </div>
+            </div>
+            
+            <div class="key-point">
+              <i class="fas fa-handshake"></i>
+              <div>
+                <h4>Diplomacy and Soft Power</h4>
+                <p>Space cooperation initiatives and collaboration on major projects like the International Space Station demonstrate how space can serve as a tool for diplomacy and international relationship building.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- Historical Timeline Section -->
+  <!-- <section class="content-section">
+    <div class="container">
+      <h2 class="text-center mb-5">Evolution of Space Power</h2>
+      
+      <div class="timeline">
+        <div class="timeline-container left">
+          <div class="timeline-content">
+            <div class="timeline-year">1957-1969</div>
+            <h4>Space Race Era</h4>
+            <p>The competition between the United States and Soviet Union to achieve spaceflight milestones as a demonstration of technological and ideological superiority, culminating in the Apollo moon landings.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-container right">
+          <div class="timeline-content">
+            <div class="timeline-year">1970s-1980s</div>
+            <h4>Militarization of Space</h4>
+            <p>Development of military satellite systems for reconnaissance, communications, and early warning, alongside the emergence of anti-satellite capabilities and the Strategic Defense Initiative.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-container left">
+          <div class="timeline-content">
+            <div class="timeline-year">1990s-2000s</div>
+            <h4>Space Cooperation Era</h4>
+            <p>International collaboration exemplified by the International Space Station, alongside the growth of commercial satellite services and the emergence of new spacefaring nations.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-container right">
+          <div class="timeline-content">
+            <div class="timeline-year">2010s-Present</div>
+            <h4>New Space Age</h4>
+            <p>Commercial space revolution with reduced launch costs, mega-constellations, lunar exploration initiatives, and the establishment of Space Forces by major powers, signaling renewed strategic competition.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- Related Publications Section -->
+  <section class="content-section light-section">
+    <div class="container">
+      <h2 class="text-center mb-4">Related Publications</h2>
+      
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="publication-card">
+            <h4>Drawing the New Iron Curtain in the Final Frontier of Space</h4>
+            <p class="journal">Issue Brief (Sharp Scope Volume 1, Number 2)</p>
+            <p class="journal">Samvada World (Bangalore), 2024</p>
+            <p>Examination of the limitations of the 1967 Outer Space Treaty in addressing contemporary space security challenges.</p>
+            <a href="https://theanuragsharma.com/assets/Sharp-Scope-Vol-1-No-2-Drawing-the-new-Iron-Curtain-in-the-Final-Frontier-of-Space.pdf" class="btn btn-sm btn-outline-primary" target="_blank">Read More</a>
+          </div>
+        </div>
+        
+        <div class="col-md-4 mb-4">
+          <div class="publication-card">
+            <h4>Europe-India Space Cooperation: A Comprehensive Study</h4>
+            <p class="journal">Research Paper</p>
+            <p class="journal">Europe India Center for Business and Industries, 2024</p>
+            <p>Analysis of the historical development and future prospects of space cooperation between Europe and India.</p>
+            <a href="https://www.eicbi.org/post/europe-india-space-cooperation-a-comprehensive-study-of-100-year-engagement-and-beyond" class="btn btn-sm btn-outline-primary">Read More</a>
+          </div>
+        </div>
+      
+      <div class="text-center mt-4">
+        <a href="publications.html" class="btn btn-primary">View All Publications</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action Section -->
+  <section class="call-to-action">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+          <h3>Interested in Space Power Consulting?</h3>
+          <p class="lead mb-4">Book a consultation session to discuss space policy, security considerations, or strategic planning for your organization.</p>
+          <a href="./booksession.html" target="_blank" class="btn btn-light">Book a Session</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center mb-3 mb-md-0">
+          <p>&copy; 2026 Anurag Sharma. All Rights Reserved. | <a href="privacy-policy.html" style="color: var(--accent-color); text-decoration: none;">Privacy & Cookie Policy</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <a href="#" id="back-to-top" class="btn btn-primary back-to-top position-fixed bottom-0 end-0 m-4 rounded-circle"
+    style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; opacity: 0.7; display: none;">
+    <i class="fas fa-rocket"></i>
+  </a>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Mobile navbar link click handler
+    document.addEventListener('DOMContentLoaded', function() {
+      const navLinks = document.querySelectorAll('.navbar-nav .nav-link, .navbar-nav .btn');
+      const navbarCollapse = document.querySelector('.navbar-collapse');
+      
+      navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          document.body.classList.remove('mobile-menu-open');
+          if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+            const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+            if (bsCollapse) bsCollapse.hide();
+          }
+        });
+      });
+    });
+    
+    // Back to top button
+    $(window).scroll(function () {
+      if ($(this).scrollTop() > 300) {
+        $('#back-to-top').fadeIn();
+      } else {
+        $('#back-to-top').fadeOut();
+      }
+    });
+
+    $('#back-to-top').click(function () {
+      $('html, body').animate({ scrollTop: 0 }, 800);
+      return false;
+    });
+
+    // Navigation scroll behavior
+    $(window).scroll(function () {
+      if ($(window).scrollTop() > 50) {
+        $('.navbar').addClass('scrolled');
+      } else {
+        $('.navbar').removeClass('scrolled');
+      }
+    });
+
+    // Trigger scroll event on page load to set initial navbar state
+    $(window).trigger('scroll');
+  </script>
+</body>
+
+</html>

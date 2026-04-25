@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Conferences and Delegations - Anurag Sharma</title>
+  <link rel="icon" type="image/x-icon" href="./assets/logo-for-title.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <style>
+    /* Increased navbar link spacing on desktop */
+    @media (min-width: 992px) {
+      .navbar-nav .nav-item {
+        margin-left: 8px;
+        margin-right: 8px;
+      }
+      
+      .navbar-nav .nav-item:first-child {
+        margin-left: 0;
+      }
+    }
+    
+    /* Header styles */
+    .expertise-header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 8rem 0 3rem;
+      position: relative;
+      border-radius: 15px;
+    }
+
+    .expertise-header .icon {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .expertise-header {
+        padding: 6rem 0 2rem;
+        border-radius: 15px;
+      }
+
+      .expertise-header .icon {
+        font-size: 2.5rem;
+        display: block;
+      }
+
+      .expertise-header h1 {
+        font-size: 1.8rem;
+      }
+
+      .expertise-header .lead {
+        font-size: 0.95rem;
+        padding: 0 15px;
+      }
+
+      body {
+        padding-top: 50px;
+      }
+    }
+
+    /* Content Section Styles */
+    .content-section {
+      padding: 2.5rem 0;
+    }
+
+    .light-section {
+      background-color: #f9f9f9;
+    }
+
+    /* Event Card Styles */
+    .event-card {
+      background: white;
+      border-radius: 10px;
+      padding: 25px;
+      height: 100%;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      text-align: center;
+      border-left: 4px solid var(--accent-color);
+    }
+
+    .event-card:hover {
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      transform: translateY(-2px);
+    }
+
+    .event-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 1.5rem;
+      color: white;
+      background: var(--primary-color);
+    }
+
+    .event-card h4 {
+      color: var(--primary-color);
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+
+    .event-card p {
+      color: #555;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* Conference Card Styles */
+    .conference-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      border-left: 4px solid var(--accent-color);
+    }
+
+    .conference-card:hover {
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      transform: translateY(-2px);
+    }
+
+    .conference-header {
+      padding: 20px;
+      background: var(--primary-color);
+      color: white;
+      text-align: center;
+    }
+
+    .conference-header h4 {
+      margin: 0;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .conference-header i {
+      margin-right: 8px;
+    }
+
+    .conference-body {
+      padding: 20px;
+      flex-grow: 1;
+    }
+
+    .conference-years {
+      color: var(--accent-color);
+      font-weight: 600;
+      margin-bottom: 15px;
+      font-size: 0.9rem;
+    }
+
+    .conference-years i {
+      margin-right: 6px;
+    }
+
+    .conference-body p:last-child {
+      color: #555;
+      line-height: 1.7;
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+
+      .event-card,
+      .conference-card {
+        margin-bottom: 20px;
+      }
+
+      .event-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 1.8rem;
+      }
+
+      .event-card h4,
+      .conference-header h4 {
+        font-size: 1.2rem;
+      }
+    }
+
+    /* Enhanced Conference Gallery Styles */
+    .conference-gallery-section {
+      display: none;
+      /* Toggled based on preference, currently hidden in favor of fullwidth */
+    }
+
+    .gallery-title {
+      text-align: center;
+      margin-bottom: 3rem;
+      color: var(--primary-color);
+      font-size: 2.5rem;
+      font-weight: 700;
+      position: relative;
+    }
+
+    .conference-gallery {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    .conference-item {
+      display: flex;
+      align-items: center;
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      padding: 0;
+    }
+
+    .conference-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .conference-item:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .conference-info {
+      flex: 0 0 35%;
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .conference-icon-large {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary-color), #1a237e);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: white;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .conference-title-section h3 {
+      margin: 0;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+
+    .conference-year-large {
+      display: inline-block;
+      background: var(--accent-color);
+      color: white;
+      padding: 0.5rem 1.2rem;
+      border-radius: 25px;
+      font-size: 1rem;
+      font-weight: 600;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .conference-images {
+      flex: 1;
+      position: relative;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      background: #f8f9fa;
+    }
+
+    /* Slideshow Styles - Critical Fixes */
+    .image-slideshow {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      overflow: hidden; /* Changed from visible to prevent spillover */
+      display: flex;
+      flex-direction: column;
+    }
+
+    .slideshow-main {
+      position: relative;
+      width: 100%;
+      height: 550px;
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: none;
+      background: #f5f5f5;
+      margin-bottom: 10px;
+    }
+
+    .slideshow-main img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* changed from cover to contain to see full image */
+      transition: opacity 0.4s ease-in-out;
+      background: transparent;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      z-index: 1;
+    }
+
+    .slideshow-main img.active {
+      opacity: 1;
+      z-index: 2;
+    }
+
+    .image-overlay {
+      display: none;
+    }
+
+    .slideshow-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    .slideshow-nav:hover {
+      background: var(--accent-color);
+    }
+
+    .slideshow-nav.prev {
+      left: 10px;
+    }
+
+    .slideshow-nav.next {
+      right: 10px;
+    }
+
+    /* SINGLE IMAGE LOGIC: Hides nav if only 1 image */
+    .image-slideshow.single-image .slideshow-nav,
+    .image-slideshow.single-image .image-thumbnails-bottom {
+      display: none !important;
+    }
+
+    /* THUMBNAIL STRIP FIXES */
+    .image-thumbnails-bottom {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      z-index: 15;
+      max-width: calc(100% - 100px);
+      overflow-x: auto; /* Enable scrolling */
+      overflow-y: hidden;
+      padding: 5px 8px;
+      background: rgba(0,0,0,0.5);
+      border-radius: 8px;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE/Edge */
+      justify-content: flex-start; /* Align left to prevent center cutting */
+    }
+
+    .image-thumbnails-bottom::-webkit-scrollbar {
+      display: none; /* Chrome/Safari */
+    }
+
+    .thumbnail-item-bottom {
+      flex-shrink: 0;
+      width: 60px;
+      height: 60px;
+      border-radius: 4px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 2px solid #ddd;
+      background: white;
+    }
+
+    .thumbnail-item-bottom:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent-color);
+    }
+
+    .thumbnail-item-bottom.active {
+      border-color: var(--accent-color);
+      box-shadow: 0 0 0 2px var(--accent-color);
+    }
+
+    .thumbnail-item-bottom img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .thumbnail-more-bottom {
+      flex-shrink: 0;
+      width: 60px;
+      height: 60px;
+      border-radius: 4px;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      border: 2px solid #ddd;
+    }
+    
+    .more-overlay {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      display: flex; justify-content: center; align-items: center;
+      font-size: 0.8rem;
+    }
+
+    /* Lightbox Styles */
+    .lightbox-modal {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+    }
+
+    .lightbox-modal.active {
+      display: flex;
+    }
+
+    .lightbox-content {
+      background: white;
+      border-radius: 10px;
+      max-width: 90vw;
+      max-height: 90vh;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+      z-index: 10002;
+    }
+
+    .lightbox-header {
+      background: var(--primary-color);
+      color: white;
+      padding: 10px 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .lightbox-header h3 { font-size: 1.1rem; margin: 0; }
+
+    .lightbox-image-container {
+      position: relative;
+      flex: 1;
+      background: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 300px;
+    }
+
+    .lightbox-image-container img {
+      max-width: 100%;
+      max-height: 70vh;
+      object-fit: contain;
+    }
+
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.2);
+      color: white;
+      border: none;
+      padding: 15px;
+      cursor: pointer;
+      font-size: 1.5rem;
+      z-index: 10001;
+    }
+    .lightbox-nav:hover { background: rgba(255,255,255,0.4); }
+    .lightbox-nav.prev { left: 0; }
+    .lightbox-nav.next { right: 0; }
+
+    .lightbox-thumbnails {
+      padding: 10px;
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      background: #333;
+    }
+    
+    .lightbox-thumbnail {
+      width: 60px; height: 50px;
+      opacity: 0.5;
+      cursor: pointer;
+      border: 2px solid transparent;
+      flex-shrink: 0;
+    }
+    .lightbox-thumbnail.active {
+      opacity: 1;
+      border-color: var(--accent-color);
+    }
+    .lightbox-thumbnail img { width: 100%; height: 100%; object-fit: cover; }
+
+
+    /* Fullwidth Section specific */
+    .conference-fullwidth-section {
+      padding: 0;
+      background: #ffffff;
+    }
+
+    .fullwidth-gallery-title {
+      text-align: center;
+      padding: 4rem 0 3rem;
+      margin-bottom: 0;
+      color: var(--primary-color);
+      font-size: 2.5rem;
+      background: #f8f9fa;
+    }
+
+    .conference-fullwidth-item {
+      display: flex;
+      align-items: stretch;
+      background: white;
+      border-bottom: 1px solid #eee;
+      min-height: 600px;
+    }
+
+    .conference-fullwidth-item:nth-child(even) {
+      flex-direction: row-reverse;
+      background: #f8f9fa;
+    }
+
+    .conference-fullwidth-info {
+      flex: 0 0 40%;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      flex-direction: column;
+    }
+
+    .conference-fullwidth-info img.poster {
+        width: 100%;
+        height: auto;
+        max-height: 500px;
+        object-fit: contain;
+        margin-bottom: 20px;
+    }
+
+    .conference-fullwidth-title {
+      text-align: center;
+      background: rgba(26, 35, 126, 0.9);
+      padding: 15px 25px;
+      border-radius: 8px;
+      margin-top: auto;
+    }
+
+    .conference-fullwidth-title h3 {
+      margin: 0;
+      font-size: 1rem;
+      color: white;
+    }
+
+    .conference-fullwidth-year {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: var(--accent-color);
+      color: white;
+      padding: 5px 15px;
+      border-radius: 15px;
+      font-weight: bold;
+    }
+    
+    /* Single centered conference item */
+    .conference-fullwidth-item.single-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 3rem;
+      background: white;
+      border-bottom: 1px solid #eee;
+      min-height: 600px;
+    }
+    
+    .conference-fullwidth-item.single-section .conference-fullwidth-info {
+      flex: none;
+      max-width: 800px;
+      width: 100%;
+    }
+    
+    /* Equal width sections for specific conferences */
+    .conference-fullwidth-item.equal-width .conference-fullwidth-info,
+    .conference-fullwidth-item.equal-width .conference-fullwidth-images {
+      flex: 0 0 50%;
+    }
+
+    .conference-fullwidth-images {
+      flex: 1;
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 968px) {
+      /* Move thumbnails to bottom on mobile */
+      .image-thumbnails-bottom {
+        position: absolute;
+        top: auto;
+        bottom: 10px;
+        right: 10px;
+        left: 10px;
+        max-width: calc(100% - 20px);
+        justify-content: center;
+        gap: 5px;
+        padding: 3px 5px;
+      }
+      
+      .thumbnail-item-bottom {
+        width: 35px;
+        height: 35px;
+      }
+      
+      .conference-fullwidth-item {
+        flex-direction: column !important;
+      }
+      .conference-fullwidth-info, .conference-fullwidth-images {
+        flex: auto;
+        width: 100%;
+        padding: 1rem;
+      }
+      
+      /* Mobile style for single-section conferences */
+      .conference-fullwidth-item.single-section {
+        padding: 1.5rem;
+        min-height: auto;
+      }
+      
+      .slideshow-main { height: 250px; }
+    }
+
+    /* Embassy Section */
+    .embassy-section { 
+      background-color: #f9f9f9; 
+      overflow-x: hidden;
+      padding: 3rem 1rem;
+    }
+    .embassy-grid { 
+      display: flex; 
+      flex-wrap: wrap; 
+      gap: 20px; 
+      justify-content: center;
+      max-width: 1000px;
+      margin: 0 auto;
+      overflow: visible;
+      padding: 0 20px;
+    }
+    .embassy-card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 300px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+      will-change: transform;
+    }
+    .embassy-card:nth-child(4),
+    .embassy-card:nth-child(5) {
+      margin-top: 0;
+    }
+    .embassy-card:hover { transform: scale(1.05); }
+    .embassy-flag { height: 120px; display: flex; align-items: center; justify-content: center; margin-top: 15px; }
+    .embassy-flag img { max-width: 100%; max-height: 100%; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+
+  </style>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-30GRQXD0XM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-30GRQXD0XM');
+</script>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a href="index.html">
+        <img src="./assets/logo_with_globe.png" class="logo" alt="Anurag Sharma Logo" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#expertise">Expertise</a></li>
+          <a class="nav-link" href="publications.html">Publications</a>
+          <li class="nav-item"><a class="nav-link" href="subject-matter-knowledge.html">Subject Matter Knowledge</a></li>
+          <li class="nav-item"><a class="nav-link active" href="conferences-delegations.html">Conferences</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+          <li class="nav-item">
+            <a class="btn btn-primary" href="booksession.html" style="margin-left: 10px;">Book a Session</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header Section -->
+  <header class="expertise-header">
+    <div class="container">
+      <div class="text-center">
+        <h1>Conferences and Delegations</h1>
+        <p class="lead">International Conferences and Embassy Visits</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Embassy Visits Section -->
+  <section class="content-section embassy-section py-5">
+    <div class="container">
+      <h2 class="text-center mb-4" style="color: var(--primary-color); font-size: 2.5rem;">
+        <i class="fas fa-building"></i> Embassy Visits
+      </h2>
+      <div class="embassy-grid">
+        <div class="embassy-card">
+          <div class="embassy-name">Embassy of Japan</div>
+          <div class="embassy-flag"><img src="https://flagcdn.com/w320/jp.png" alt="Japan Flag" /></div>
+        </div>
+        <div class="embassy-card">
+          <div class="embassy-name">Embassy of the Republic of Korea</div>
+          <div class="embassy-flag"><img src="https://flagcdn.com/w320/kr.png" alt="South Korea Flag" /></div>
+        </div>
+        <div class="embassy-card">
+          <div class="embassy-name">Taiwan Economic and Cultural Center</div>
+          <div class="embassy-flag"><img src="https://flagcdn.com/w320/tw.png" alt="Taiwan Flag" /></div>
+        </div>
+        <div class="embassy-card">
+          <div class="embassy-name">Embassy of Lebanon</div>
+          <div class="embassy-flag"><img src="https://flagcdn.com/w320/lb.png" alt="Lebanon Flag" /></div>
+        </div>
+        <!-- <div class="embassy-card">
+          <div class="embassy-name">Embassy of the Syrian Arab Republic</div>
+          <div class="embassy-flag"><img src="/images/syria-flag-old.jpg" alt="Syria Flag" onerror="this.src='https://placehold.co/320x200?text=Flag+Not+Found'"/></div>
+        </div> -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Full-Width Conference Gallery Section -->
+  <section class="content-section conference-fullwidth-section">
+    <h2 class="fullwidth-gallery-title">
+      <i class="fas fa-globe"></i> International Conferences
+    </h2>
+
+    <div class="conference-fullwidth-gallery">
+
+      <!-- Raisina Dialogue 2026 -->
+      <div class="conference-fullwidth-item">
+        <div class="conference-fullwidth-info">
+          <img src="/images/raisina_dialogue/image0.png" class="poster" alt="Raisina Dialogue Poster" loading="lazy">
+          <div class="conference-fullwidth-year">2026</div>
+        </div>
+        <div class="conference-fullwidth-images">
+          <div class="image-slideshow" data-conference="raisina_dialogue">
+            <div class="slideshow-main">
+              <img src="/images/raisina_dialogue/image1.jpeg" class="slideshow-image active" alt="Slide 1">
+              <img src="/images/raisina_dialogue/image2.jpeg" class="slideshow-image" alt="Slide 2">
+              <img src="/images/raisina_dialogue/image3.jpeg" class="slideshow-image" alt="Slide 3">
+              <button class="slideshow-nav prev" onclick="event.stopPropagation(); changeSlide('raisina_dialogue', -1)"><i class="fas fa-chevron-left"></i></button>
+              <button class="slideshow-nav next" onclick="event.stopPropagation(); changeSlide('raisina_dialogue', 1)"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <div class="image-thumbnails-bottom">
+              <div class="thumbnail-item-bottom active" onclick="setSlide('raisina_dialogue', 0)"><img src="/images/raisina_dialogue/image1.jpeg"></div>
+              <div class="thumbnail-item-bottom" onclick="setSlide('raisina_dialogue', 1)"><img src="/images/raisina_dialogue/image2.jpeg"></div>
+              <div class="thumbnail-item-bottom" onclick="setSlide('raisina_dialogue', 2)"><img src="/images/raisina_dialogue/image3.jpeg"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- AI Impact Summit 2026 -->
+      <div class="conference-fullwidth-item equal-width">
+        <div class="conference-fullwidth-info">
+          <img src="/images/ai_impact_summit/image0.png" class="poster" alt="AI Impact Summit Poster" loading="lazy">
+          <div class="conference-fullwidth-year">2026</div>
+        </div>
+        <div class="conference-fullwidth-images">
+          <div class="image-slideshow" data-conference="ai_impact_summit">
+            <div class="slideshow-main">
+              <img src="/images/ai_impact_summit/image1.jpeg" class="slideshow-image active" alt="Slide 1">
+              <button class="slideshow-nav prev" onclick="event.stopPropagation(); changeSlide('ai_impact_summit', -1)"><i class="fas fa-chevron-left"></i></button>
+              <button class="slideshow-nav next" onclick="event.stopPropagation(); changeSlide('ai_impact_summit', 1)"><i class="fas fa-chevron-right"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dubai Air Show -->
+      <div class="conference-fullwidth-item">
+        <div class="conference-fullwidth-info">
+          <img src="/images/dubai_air_show/image0.png" class="poster" alt="Dubai AirShow Poster" loading="lazy">
+          <div class="conference-fullwidth-year">2025</div>
+        </div>
+        <div class="conference-fullwidth-images">
+          <div class="image-slideshow" data-conference="dubai_air_show">
+            <div class="slideshow-main">
+              <img src="/images/dubai_air_show/image1.jpeg" class="slideshow-image active" alt="Slide 1">
+              <img src="/images/dubai_air_show/image2.jpeg" class="slideshow-image" alt="Slide 2">
+              <img src="/images/dubai_air_show/image3.jpeg" class="slideshow-image" alt="Slide 3">
+              <img src="/images/dubai_air_show/image4.jpeg" class="slideshow-image" alt="Slide 4">
+              <img src="/images/dubai_air_show/image5.jpeg" class="slideshow-image" alt="Slide 5">
+              <img src="/images/dubai_air_show/image6.jpeg" class="slideshow-image" alt="Slide 6">
+              <button class="slideshow-nav prev" onclick="event.stopPropagation(); changeSlide('dubai_air_show', -1)"><i class="fas fa-chevron-left"></i></button>
+              <button class="slideshow-nav next" onclick="event.stopPropagation(); changeSlide('dubai_air_show', 1)"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <div class="image-thumbnails-bottom">
+              <div class="thumbnail-item-bottom active" onclick="setSlide('dubai_air_show', 0)"><img src="/images/dubai_air_show/image1.jpeg"></div>
+              <div class="thumbnail-item-bottom" onclick="setSlide('dubai_air_show', 1)"><img src="/images/dubai_air_show/image2.jpeg"></div>
+              <div class="thumbnail-item-bottom" onclick="setSlide('dubai_air_show', 2)"><img src="/images/dubai_air_show/image3.jpeg"></div>
+              <div class="thumbnail-item-bottom" onclick="setSlide('dubai_air_show', 3)"><img src="/images/dubai_air_show/image4.jpeg"></div>
+              <div class="thumbnail-item-bottom" onclick="setSlide('dubai_air_show', 4)"><img src="/images/dubai_air_show/image5.jpeg"></div>
+              <div class="thumbnail-item-bottom" onclick="setSlide('dubai_air_show', 5)"><img src="/images/dubai_air_show/image6.jpeg"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- International Space Conference -->
+      <div class="conference-fullwidth-item equal-width">
+        <div class="conference-fullwidth-info">
+          <img src="/images/international_space_conference/image0.jpg" class="poster" alt="Space Conf Poster" loading="lazy">
+          <div class="conference-fullwidth-year">2025</div>
+        </div>
+        <div class="conference-fullwidth-images">
+          <div class="image-slideshow" data-conference="international_space_conference">
+            <div class="slideshow-main">
+              <img src="/images/international_space_conference/image1.jpeg" class="slideshow-image active" alt="Slide 1">
+              <button class="slideshow-nav prev" onclick="event.stopPropagation(); changeSlide('international_space_conference', -1)"><i class="fas fa-chevron-left"></i></button>
+              <button class="slideshow-nav next" onclick="event.stopPropagation(); changeSlide('international_space_conference', 1)"><i class="fas fa-chevron-right"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Indo-Pacific Regional Dialogue -->
+      <div class="conference-fullwidth-item">
+        <div class="conference-fullwidth-info">
+          <img src="/images/iprd/image0.png" class="poster" alt="IPRD Poster" loading="lazy">
+          <div class="conference-fullwidth-year">2024, 2025</div>
+        </div>
+        <div class="conference-fullwidth-images">
+          <div class="image-slideshow" data-conference="iprd">
+            <div class="slideshow-main">
+              <img src="/images/iprd/image1.jpeg" class="slideshow-image active" alt="Slide 1">
+              <img src="/images/iprd/image2.jpeg" class="slideshow-image" alt="Slide 2">
+              <button class="slideshow-nav prev" onclick="event.stopPropagation(); changeSlide('iprd', -1)"><i class="fas fa-chevron-left"></i></button>
+              <button class="slideshow-nav next" onclick="event.stopPropagation(); changeSlide('iprd', 1)"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <div class="image-thumbnails-bottom">
+              <div class="thumbnail-item-bottom active" onclick="setSlide('iprd', 0)"><img src="/images/iprd/image1.jpeg"></div>
+              <div class="thumbnail-item-bottom" onclick="setSlide('iprd', 1)"><img src="/images/iprd/image2.jpeg"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ISPA Defence Space Symposium -->
+      <div class="conference-fullwidth-item">
+        <div class="conference-fullwidth-info">
+          <img src="/images/indian_defspace_symposium/image1.png" class="poster" alt="ISPA Poster" loading="lazy">
+          <div class="conference-fullwidth-year">2024, 2025</div>
+        </div>
+        <div class="conference-fullwidth-images">
+          <div class="image-slideshow" data-conference="indian_defspace_symposium">
+            <div class="slideshow-main">
+              <img src="/images/indian_defspace_symposium/image2.jpg" class="slideshow-image active" alt="Slide 1">
+              <img src="/images/indian_defspace_symposium/image3.jpg" class="slideshow-image" alt="Slide 2">
+              <button class="slideshow-nav prev" onclick="event.stopPropagation(); changeSlide('indian_defspace_symposium', -1)"><i class="fas fa-chevron-left"></i></button>
+              <button class="slideshow-nav next" onclick="event.stopPropagation(); changeSlide('indian_defspace_symposium', 1)"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <div class="image-thumbnails-bottom">
+              <div class="thumbnail-item-bottom active" onclick="setSlide('indian_defspace_symposium', 0)"><img src="/images/indian_defspace_symposium/image2.jpg"></div>
+              <div class="thumbnail-item-bottom" onclick="setSlide('indian_defspace_symposium', 1)"><img src="/images/indian_defspace_symposium/image3.jpg"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Indian Space Conclave -->
+      <div class="conference-fullwidth-item">
+        <div class="conference-fullwidth-info">
+          <img src="/images/indian_space_conclave/image0.png" class="poster" alt="Indian Space Conclave Poster" loading="lazy">
+          <div class="conference-fullwidth-year">2024</div>
+        </div>
+        <div class="conference-fullwidth-images">
+          <div class="image-slideshow" data-conference="indian_space_conclave">
+            <div class="slideshow-main">
+              <img src="/images/indian_space_conclave/image1.jpeg" class="slideshow-image active" alt="Slide 1">
+              <button class="slideshow-nav prev" onclick="event.stopPropagation(); changeSlide('indian_space_conclave', -1)"><i class="fas fa-chevron-left"></i></button>
+              <button class="slideshow-nav next" onclick="event.stopPropagation(); changeSlide('indian_space_conclave', 1)"><i class="fas fa-chevron-right"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bangalore Space Expo -->
+      <div class="conference-fullwidth-item equal-width">
+        <div class="conference-fullwidth-info">
+          <img src="/images/bangalore_space_expo/image0.jpg" class="poster" alt="Bangalore Space Expo Poster" loading="lazy">
+          <div class="conference-fullwidth-year">2024</div>
+        </div>
+        <div class="conference-fullwidth-images">
+          <div class="image-slideshow" data-conference="bangalore_space_expo">
+            <div class="slideshow-main">
+              <img src="/images/bangalore_space_expo/image1.jpeg" class="slideshow-image active" alt="Slide 1">
+              <img src="/images/bangalore_space_expo/image2.jpeg" class="slideshow-image" alt="Slide 2">
+              <button class="slideshow-nav prev" onclick="event.stopPropagation(); changeSlide('bangalore_space_expo', -1)"><i class="fas fa-chevron-left"></i></button>
+              <button class="slideshow-nav next" onclick="event.stopPropagation(); changeSlide('bangalore_space_expo', 1)"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <div class="image-thumbnails-bottom">
+              <div class="thumbnail-item-bottom active" onclick="setSlide('bangalore_space_expo', 0)"><img src="/images/bangalore_space_expo/image1.jpeg"></div>
+              <div class="thumbnail-item-bottom" onclick="setSlide('bangalore_space_expo', 1)"><img src="/images/bangalore_space_expo/image2.jpeg"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FirstPost Defence Summit -->
+      <div class="conference-fullwidth-item single-section">
+        <div class="conference-fullwidth-info">
+          <img src="/images/firstpost_defence_summit/image1.png" class="poster" alt="FirstPost Defence Summit" loading="lazy">
+          <div class="conference-fullwidth-year">2024</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Lightbox Modal -->
+  <div id="lightboxModal" class="lightbox-modal" onclick="closeLightbox()">
+    <div class="lightbox-content" onclick="event.stopPropagation()">
+      <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+      <div class="lightbox-header">
+        <h3 id="lightboxTitle">Conference Gallery</h3>
+      </div>
+      <div class="lightbox-image-container">
+        <img id="lightboxImage" src="" alt="Full view">
+        <button class="lightbox-nav prev" onclick="lightboxNav(-1)"><i class="fas fa-chevron-left"></i></button>
+        <button class="lightbox-nav next" onclick="lightboxNav(1)"><i class="fas fa-chevron-right"></i></button>
+      </div>
+      <div class="lightbox-thumbnails" id="lightboxThumbnails"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center mb-3 mb-md-0">
+          <p>&copy; 2026 Anurag Sharma. All Rights Reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    // --- Data Definition ---
+    // Make sure these paths match exactly what is on your server.
+    const conferenceData = {
+      'ai_impact_summit': {
+        title: 'AI Impact Summit 2026',
+        images: [
+          '/images/ai_impact_summit/image1.jpeg'
+        ]
+      },
+      'raisina_dialogue': {
+        title: 'Raisina Dialogue 2026',
+        images: [
+          '/images/raisina_dialogue/image1.jpeg',
+          '/images/raisina_dialogue/image2.jpeg',
+          '/images/raisina_dialogue/image3.jpeg'
+        ]
+      },
+      'dubai_air_show': {
+        title: 'Dubai AirShow 2025',
+        images: [
+          '/images/dubai_air_show/image1.jpeg',
+          '/images/dubai_air_show/image2.jpeg',
+          '/images/dubai_air_show/image3.jpeg',
+          '/images/dubai_air_show/image4.jpeg',
+          '/images/dubai_air_show/image5.jpeg',
+          '/images/dubai_air_show/image6.jpeg'
+        ]
+      },
+      'international_space_conference': {
+        title: 'International Conference on Space, Bangalore',
+        images: [
+          '/images/international_space_conference/image1.jpeg'
+        ]
+      },
+      'iprd': {
+        title: 'Indo-Pacific Regional Dialogue',
+        images: [
+          '/images/iprd/image1.jpeg',
+          '/images/iprd/image2.jpeg'
+        ]
+      },
+      'indian_defspace_symposium': {
+        title: 'ISPA Defence Space Symposium',
+        images: [
+          '/images/indian_defspace_symposium/image2.jpg',
+          '/images/indian_defspace_symposium/image3.jpg'
+        ]
+      },
+      'indian_space_conclave': {
+        title: 'Indian Space Conclave',
+        images: [
+          '/images/indian_space_conclave/image1.jpeg'
+        ]
+      },
+      'bangalore_space_expo': {
+        title: 'Bangalore Space Expo',
+        images: [
+          '/images/bangalore_space_expo/image1.jpeg',
+          '/images/bangalore_space_expo/image2.jpeg'
+        ]
+      },
+      'firstpost_defence_summit': {
+        title: 'FirstPost Defence Summit',
+        images: [
+          '/images/firstpost_defence_summit/image1.png'
+        ]
+      }
+    };
+
+    // Global state to track current index for each conference
+    const currentIndices = {};
+
+    // --- Initialization ---
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Initialize indices to 0
+      Object.keys(conferenceData).forEach(key => {
+        currentIndices[key] = 0;
+      });
+
+      // 2. Hide controls for single-image slideshows
+      document.querySelectorAll('.image-slideshow').forEach(container => {
+        const confKey = container.getAttribute('data-conference');
+        const data = conferenceData[confKey];
+        if (data && data.images.length <= 1) {
+          container.classList.add('single-image');
+        }
+      });
+      
+      // 3. Add error handling for images
+      document.querySelectorAll('img').forEach(img => {
+        img.onerror = function() {
+           // Prevent infinite loop if placeholder also fails
+           this.onerror = null;
+           // Log but don't crash
+           console.log("Missing image:", this.src);
+           // Optional: this.src = 'placeholder.png'; 
+        };
+      });
+    });
+
+    // --- Slideshow Logic ---
+
+    // Move to next/prev slide
+    function changeSlide(confKey, step) {
+      if (!conferenceData[confKey]) return;
+      const count = conferenceData[confKey].images.length;
+      if (count <= 1) return;
+
+      let newIndex = (currentIndices[confKey] + step);
+      if (newIndex < 0) newIndex = count - 1;
+      if (newIndex >= count) newIndex = 0;
+
+      updateSlideshowUI(confKey, newIndex);
+    }
+
+    // Jump to specific slide (thumbnail click)
+    function setSlide(confKey, index) {
+      if (!conferenceData[confKey]) return;
+      updateSlideshowUI(confKey, index);
+    }
+
+    // Core function to update the DOM
+    function updateSlideshowUI(confKey, newIndex) {
+      currentIndices[confKey] = newIndex;
+      const data = conferenceData[confKey];
+
+      // Find ALL slideshow containers for this conference (in case of duplicates/mobile views)
+      const containers = document.querySelectorAll(`.image-slideshow[data-conference="${confKey}"]`);
+
+      containers.forEach(container => {
+        // 1. Update Main Images
+        const images = container.querySelectorAll('.slideshow-image');
+        images.forEach((img, idx) => {
+           if(idx === newIndex) {
+             img.classList.add('active');
+           } else {
+             img.classList.remove('active');
+           }
+        });
+
+        // 2. Update Thumbnails
+        const thumbs = container.querySelectorAll('.thumbnail-item-bottom');
+        thumbs.forEach((thumb, idx) => {
+          if(idx === newIndex) {
+            thumb.classList.add('active');
+          } else {
+            thumb.classList.remove('active');
+          }
+        });
+      });
+    }
+
+    // --- Lightbox Logic ---
+    let activeLightboxConf = null;
+
+    function openLightbox(confKey) {
+      const data = conferenceData[confKey];
+      if (!data) return;
+
+      activeLightboxConf = confKey;
+      const currentIndex = currentIndices[confKey] || 0;
+
+      // Populate Title
+      document.getElementById('lightboxTitle').innerText = data.title;
+      
+      // Populate Thumbnails
+      const thumbContainer = document.getElementById('lightboxThumbnails');
+      thumbContainer.innerHTML = '';
+      
+      data.images.forEach((src, idx) => {
+        const thumb = document.createElement('div');
+        thumb.className = `lightbox-thumbnail ${idx === currentIndex ? 'active' : ''}`;
+        thumb.innerHTML = `<img src="${src}" />`;
+        thumb.onclick = () => updateLightboxView(idx);
+        thumbContainer.appendChild(thumb);
+      });
+
+      // Show first image
+      updateLightboxView(currentIndex);
+      
+      // Show Modal
+      document.getElementById('lightboxModal').classList.add('active');
+      document.body.style.overflow = 'hidden'; // disable scrolling
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightboxModal').classList.remove('active');
+      document.body.style.overflow = ''; 
+      activeLightboxConf = null;
+    }
+
+    function lightboxNav(step) {
+      if (!activeLightboxConf) return;
+      const count = conferenceData[activeLightboxConf].images.length;
+      let newIndex = (currentIndices[activeLightboxConf] + step);
+      
+      if (newIndex < 0) newIndex = count - 1;
+      if (newIndex >= count) newIndex = 0;
+      
+      updateLightboxView(newIndex);
+    }
+
+    function updateLightboxView(index) {
+      if (!activeLightboxConf) return;
+      
+      // Update global index so slideshow behind stays synced
+      updateSlideshowUI(activeLightboxConf, index);
+
+      // Update Lightbox Main Image
+      const imgSrc = conferenceData[activeLightboxConf].images[index];
+      const mainImg = document.getElementById('lightboxImage');
+      
+      // Simple fade effect
+      mainImg.style.opacity = 0.5;
+      setTimeout(() => {
+        mainImg.src = imgSrc;
+        mainImg.style.opacity = 1;
+      }, 150);
+
+      // Update Lightbox Thumbnails
+      const thumbs = document.querySelectorAll('.lightbox-thumbnail');
+      thumbs.forEach((t, i) => {
+        if (i === index) t.classList.add('active');
+        else t.classList.remove('active');
+      });
+    }
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const nav = document.querySelector('.navbar');
+      if (window.scrollY > 50) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+    });
+
+    // --- Auto Slideshow Logic ---
+    let autoSlideIntervals = {};
+    const AUTO_SLIDE_DELAY = 3000; // 3 seconds
+
+    function startAutoSlide(confKey) {
+      // Don't start auto-slide for conferences with only 1 image
+      if (!conferenceData[confKey] || conferenceData[confKey].images.length <= 1) return;
+      
+      // Clear any existing interval for this conference
+      if (autoSlideIntervals[confKey]) {
+        clearInterval(autoSlideIntervals[confKey]);
+      }
+      
+      // Start new interval
+      autoSlideIntervals[confKey] = setInterval(() => {
+        changeSlide(confKey, 1); // Move to next slide
+      }, AUTO_SLIDE_DELAY);
+    }
+
+    function stopAutoSlide(confKey) {
+      if (autoSlideIntervals[confKey]) {
+        clearInterval(autoSlideIntervals[confKey]);
+        delete autoSlideIntervals[confKey];
+      }
+    }
+
+    // Initialize auto-slideshow for all conferences on page load
+    window.addEventListener('DOMContentLoaded', function() {
+      Object.keys(conferenceData).forEach(confKey => {
+        startAutoSlide(confKey);
+      });
+
+      // Pause auto-slide when user hovers over slideshow
+      document.querySelectorAll('.image-slideshow').forEach(slideshow => {
+        const confKey = slideshow.getAttribute('data-conference');
+        
+        slideshow.addEventListener('mouseenter', () => {
+          stopAutoSlide(confKey);
+        });
+        
+        slideshow.addEventListener('mouseleave', () => {
+          startAutoSlide(confKey);
+        });
+      });
+    });
+
+  </script>
+
+  <!-- Back to Top Button -->
+  <a href="#" id="back-to-top" class="btn btn-primary back-to-top position-fixed bottom-0 end-0 m-4 rounded-circle"
+    style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; opacity: 0.7; display: none; z-index: 9999;">
+    <i class="fas fa-rocket" style="transform: rotate(-45deg);"></i>
+  </a>
+
+  <script>
+    // Back to top button functionality
+    $(window).scroll(function () {
+      if ($(this).scrollTop() > 300) {
+        $('#back-to-top').fadeIn();
+      } else {
+        $('#back-to-top').fadeOut();
+      }
+    });
+
+    $('#back-to-top').click(function (e) {
+      e.preventDefault();
+      
+      // Add flying animation
+      $(this).css({
+        'transition': 'transform 0.6s ease-out, opacity 0.6s ease-out',
+        'transform': 'translateY(-100vh)',
+        'opacity': '0'
+      });
+      
+      // Scroll to top smoothly
+      $('html, body').animate({ scrollTop: 0 }, 600);
+      
+      // Reset button position after animation
+      setTimeout(() => {
+        $(this).css({
+          'transition': 'none',
+          'transform': 'translateY(0)',
+          'opacity': '0.7'
+        });
+      }, 600);
+      
+      return false;
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Events - Anurag Sharma</title>
+  <link rel="icon" type="image/x-icon" href="./assets/logo_with_globe.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <style>
+    /* Header styles */
+    .expertise-header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 8rem 0 3rem;
+      position: relative;
+    }
+
+    .expertise-header .icon {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .expertise-header {
+        padding: 6rem 0 2rem;
+      }
+      .expertise-header .icon {
+        font-size: 2.5rem;
+        display: block;
+      }
+      .expertise-header h1 {
+        font-size: 1.8rem;
+      }
+      .expertise-header .lead {
+        font-size: 0.95rem;
+        padding: 0 15px;
+      }
+
+      body {
+        padding-top: 50px;
+      }
+    }
+
+    /* Content Section Styles */
+    .content-section {
+      padding: 4rem 0;
+    }
+
+    .light-section {
+      background-color: #f9f9f9;
+    }
+
+    /* Event Card Styles */
+    .event-card {
+      background: white;
+      border-radius: 10px;
+      padding: 25px;
+      height: 100%;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      text-align: center;
+      border-left: 4px solid var(--accent-color);
+    }
+
+    .event-card:hover {
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      transform: translateY(-2px);
+    }
+
+    .event-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 1.5rem;
+      color: white;
+      background: var(--primary-color);
+    }
+
+    .event-card h4 {
+      color: var(--primary-color);
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+
+    .event-card p {
+      color: #555;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* Conference Card Styles */
+    .conference-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      border-left: 4px solid var(--accent-color);
+    }
+
+    .conference-card:hover {
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      transform: translateY(-2px);
+    }
+
+    .conference-header {
+      padding: 20px;
+      background: var(--primary-color);
+      color: white;
+      text-align: center;
+    }
+
+    .conference-header h4 {
+      margin: 0;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .conference-header i {
+      margin-right: 8px;
+    }
+
+    .conference-body {
+      padding: 20px;
+      flex-grow: 1;
+    }
+
+    .conference-years {
+      color: var(--accent-color);
+      font-weight: 600;
+      margin-bottom: 15px;
+      font-size: 0.9rem;
+    }
+
+    .conference-years i {
+      margin-right: 6px;
+    }
+
+    .conference-body p:last-child {
+      color: #555;
+      line-height: 1.7;
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      .event-card, .conference-card {
+        margin-bottom: 20px;
+      }
+
+      .event-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 1.8rem;
+      }
+
+      .event-card h4, .conference-header h4 {
+        font-size: 1.2rem;
+      }
+    }
+    }
+
+    .maintenance-banner .btn {
+      margin: 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .maintenance-banner {
+        padding: 3rem 2rem;
+      }
+
+      .maintenance-banner h2 {
+        font-size: 2rem;
+      }
+
+      .maintenance-banner p {
+        font-size: 1rem;
+      }
+
+      .maintenance-banner .icon {
+        font-size: 4rem;
+      }
+    }
+  </style>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-30GRQXD0XM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-30GRQXD0XM');
+</script>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a href="index.html">
+        <img src="./assets/logo_with_globe.png" class="logo" alt="Anurag Sharma Logo" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#expertise">Expertise</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#publications">Publications</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#sme">SME</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="events.html">Events</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#workedwith">Engagements</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#contact">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-primary" href="booksession.html" style="margin-left: 10px;">Book a Session</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header Section -->
+  <header class="expertise-header">
+    <div class="container">
+      <div class="text-center">
+        <i class="fas fa-calendar-check icon"></i>
+        <h1>Events & Engagements</h1>
+        <p class="lead">Embassy Visits, International Conferences, and Strategic Dialogues</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Embassy Visits Section -->
+  <section class="content-section">
+    <div class="container">
+      <h2 style="text-align: center; margin-bottom: 3rem; color: var(--primary-color); font-size: 2.5rem;">
+        <i class="fas fa-building"></i> Embassy & Diplomatic Missions Visits
+      </h2>
+      <p style="text-align: center; margin-bottom: 3rem; color: #555; font-size: 1.1rem;">
+        Engagement with diplomatic missions to foster international cooperation and understanding
+      </p>
+      <div class="row">
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="event-card">
+            <div class="event-icon">
+              <i class="fas fa-torii-gate"></i>
+            </div>
+            <h4>Embassy of Japan</h4>
+            <p>Engagement with Japanese diplomatic representatives on bilateral relations, cultural exchange, and strategic cooperation.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="event-card">
+            <div class="event-icon">
+              <i class="fas fa-flag"></i>
+            </div>
+            <h4>Embassy of South Korea</h4>
+            <p>Discussions on technological partnerships, regional security dynamics, and Indo-Pacific cooperation frameworks.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="event-card">
+            <div class="event-icon">
+              <i class="fas fa-landmark"></i>
+            </div>
+            <h4>Embassy of Syria</h4>
+            <p>Exploration of Middle Eastern geopolitics, regional stability, and diplomatic engagement opportunities.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="event-card">
+            <div class="event-icon">
+              <i class="fas fa-mosque"></i>
+            </div>
+            <h4>Embassy of Lebanon</h4>
+            <p>Understanding Mediterranean politics, cultural heritage, and Lebanon's strategic position in regional affairs.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="event-card">
+            <div class="event-icon">
+              <i class="fas fa-globe-asia"></i>
+            </div>
+            <h4>Taiwan Economic and Cultural Center (TECC)</h4>
+            <p>Dialogue on cross-strait dynamics, technological cooperation, and Taiwan's role in Indo-Pacific stability.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Conferences and Delegations Section -->
+  <section class="content-section light-section">
+    <div class="container">
+      <h2 style="text-align: center; margin-bottom: 3rem; color: var(--primary-color); font-size: 2.5rem;">
+        <i class="fas fa-users"></i> Conferences & Delegations
+      </h2>
+      <p style="text-align: center; margin-bottom: 3rem; color: #555; font-size: 1.1rem;">
+        Participation in leading international conferences, symposiums, and strategic dialogues
+      </p>
+      <div class="row">
+        <div class="col-lg-6 mb-4">
+          <div class="conference-card">
+            <div class="conference-header">
+              <h4><i class="fas fa-satellite-dish"></i> ISpA Defence Space Symposium</h4>
+            </div>
+            <div class="conference-body">
+              <p class="conference-years"><i class="fas fa-calendar"></i> 2024 | 2025</p>
+              <p>Premier event on space defence capabilities, strategic space technologies, and India's space security framework organized by Indian Space Association.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 mb-4">
+          <div class="conference-card">
+            <div class="conference-header">
+              <h4><i class="fas fa-rocket"></i> Indian Space Conclave</h4>
+            </div>
+            <div class="conference-body">
+              <p class="conference-years"><i class="fas fa-calendar"></i> 2024</p>
+              <p>National platform bringing together space industry stakeholders, policymakers, and experts to discuss India's space ambitions and commercial opportunities.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 mb-4">
+          <div class="conference-card">
+            <div class="conference-header">
+              <h4><i class="fas fa-shield-alt"></i> FirstPost Defence Summit</h4>
+            </div>
+            <div class="conference-body">
+              <p class="conference-years"><i class="fas fa-calendar"></i> 2024</p>
+              <p>Strategic dialogue on defence modernization, military capabilities, and national security challenges facing India and the region.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 mb-4">
+          <div class="conference-card">
+            <div class="conference-header">
+              <h4><i class="fas fa-space-shuttle"></i> Bangalore Space Expo</h4>
+            </div>
+            <div class="conference-body">
+              <p class="conference-years"><i class="fas fa-calendar"></i> 2024</p>
+              <p>Major exhibition and conference showcasing space technologies, innovations, and business opportunities in India's growing space sector.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 mb-4">
+          <div class="conference-card">
+            <div class="conference-header">
+              <h4><i class="fas fa-globe"></i> Indo-Pacific Regional Dialogue</h4>
+            </div>
+            <div class="conference-body">
+              <p class="conference-years"><i class="fas fa-calendar"></i> 2024 | 2025</p>
+              <p>High-level dialogue on Indo-Pacific security architecture, regional cooperation, and strategic partnerships among nations in the region.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 mb-4">
+          <div class="conference-card">
+            <div class="conference-header">
+              <h4><i class="fas fa-satellite"></i> International Conference on Space</h4>
+            </div>
+            <div class="conference-body">
+              <p class="conference-years"><i class="fas fa-calendar"></i> 2025 | Bangalore</p>
+              <p>Global forum for space agencies, researchers, and industry leaders to discuss space exploration, technology cooperation, and future missions.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 mb-4">
+          <div class="conference-card">
+            <div class="conference-header">
+              <h4><i class="fas fa-plane"></i> Dubai AirShow</h4>
+            </div>
+            <div class="conference-body">
+              <p class="conference-years"><i class="fas fa-calendar"></i> 2025</p>
+              <p>One of the world's largest aerospace events, showcasing cutting-edge aviation and defence technologies from global industry leaders.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center mb-3 mb-md-0">
+          <p>&copy; 2025 Anurag Sharma. All Rights Reserved. | <a href="privacy-policy.html" style="color: var(--accent-color); text-decoration: none;">Privacy & Cookie Policy</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <a href="#" id="back-to-top" class="btn btn-primary back-to-top position-fixed bottom-0 end-0 m-4 rounded-circle"
+    style="width: 50px; height: 50px; display: none; align-items: center; justify-content: center; opacity: 0.7;">
+    <i class="fas fa-rocket"></i>
+  </a>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="./js/script.js"></script>
+  <script>
+    // Back to top button functionality
+    $(window).scroll(function () {
+      if ($(this).scrollTop() > 300) {
+        $('#back-to-top').fadeIn();
+      } else {
+        $('#back-to-top').fadeOut();
+      }
+    });
+
+    $('#back-to-top').click(function () {
+      $('html, body').animate({ scrollTop: 0 }, 800);
+      return false;
+    });
+
+    // Navigation scroll behavior
+    $(window).scroll(function () {
+      if ($(window).scrollTop() > 50) {
+        $('.navbar').addClass('scrolled');
+      } else {
+        $('.navbar').removeClass('scrolled');
+      }
+    });
+
+    // Trigger scroll event on page load to set initial navbar state
+    $(window).trigger('scroll');
+  </script>
+</body>
+
+</html>
