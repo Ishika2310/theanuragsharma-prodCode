@@ -566,6 +566,33 @@ body {
     font-weight: 500;
 }
 
+/* External link to SACAR company site in hero */
+.sacar-link {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.sacar-link:hover,
+.sacar-link:focus {
+    color: #fff;
+    border-bottom-color: currentColor;
+}
+
+.sacar-link-icon {
+    font-size: 0.5em;
+    margin-left: 0.35em;
+    vertical-align: 0.45em;
+    color: rgba(255, 255, 255, 0.75);
+    transition: color 0.2s ease;
+}
+
+.sacar-link:hover .sacar-link-icon,
+.sacar-link:focus .sacar-link-icon {
+    color: #fff;
+}
+
 .hero-content p.lead {
     font-size: 1.05rem;
     line-height: 1.6;
